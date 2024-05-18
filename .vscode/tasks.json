@@ -1,0 +1,61 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker-compose build",
+      "type": "shell",
+      "command": "docker-compose down -v && docker-compose build && docker-compose up -d",
+      "presentation": {
+        "focus": true
+      },
+      "options": {
+        "statusbar": {
+          "label": "build",
+          "color": "#69bbfa"
+        }
+      }
+    },
+    {
+      "label": "docker-compose restart",
+      "type": "shell",
+      "command": "docker-compose down -v && docker-compose up -d",
+      "presentation": {
+        "focus": true
+      },
+      "options": {
+        "statusbar": {
+          "label": "restart",
+          "color": "#69bbfa"
+        }
+      }
+    },
+    {
+      "label": "docker-compose down",
+      "type": "shell",
+      "command": "docker-compose down -v",
+      "presentation": {
+        "focus": true
+      },
+      "options": {
+        "statusbar": {
+          "label": "down",
+          "color": "#69bbfa"
+        }
+      }
+    },
+    {
+      "label": "docker-compose up",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "presentation": {
+        "focus": true
+      },
+      "options": {
+        "statusbar": {
+          "label": "up",
+          "color": "#69bbfa"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  brush-db:
+    image: postgres:15.3
+    container_name: brush-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=brush
+      - POSTGRES_PASSWORD=brush
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
