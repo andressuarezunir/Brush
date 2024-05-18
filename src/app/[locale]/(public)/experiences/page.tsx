@@ -7,17 +7,17 @@ export async function generateMetadata() {
   const t = await getTranslations({ locale });
 
   return {
-    title: `Brush - ${t('sections.home')}`,
-    description: t('metadata.public_home')
+    title: `Brush - ${t('sections.experiences')}`,
+    description: t('metadata.public_experiences')
   };
 }
 
-export default function HomePage() {
+export default function ExperiencesPage() {
   const t = useTranslations();
 
   return (
     <div>
-      <h1>Hello Page</h1>
+      <h1>Experiences Page</h1>
       <p>{t('test')}</p>
     </div>
   );

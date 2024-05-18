@@ -5,9 +5,23 @@
     "english": "English",
     "spanish": "Spanish"
   },
+  "sections": {
+    "home": "Home",
+    "paints": "Paints",
+    "experiences": "Experiences",
+    "about_me": "About me",
+    "contact": "Contact"
+  },
   "error404": {
     "title": "Page not found",
     "description": "It seems that you tried to enter a page that is impossible to find or is no longer in use",
     "link_text": "Back to home page"
+  },
+  "metadata": {
+    "public_home": "On this page you will find the introduction to the painter's page",
+    "public_paints": "On this page you will find all the works of the painter and in which you can filter the following works",
+    "public_experiences": "On this page you will find all the painter's experiences and you can filter them as follows",
+    "public_about_me": "This page is dedicated to the painter and the path he has taken",
+    "public_contact": "On this page you will be able to contact the painter by filling in a form"
   }
 }

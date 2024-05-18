@@ -1,10 +1,11 @@
 .footer_container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   background-color: hsl(225, 9%, 18%);
   color: hsl(0, 0%, 100%);
-  padding: 0.7rem 0;
+  height: 7.5vh;
 }
 .footer_bold {
   font-weight: 700;

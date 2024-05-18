@@ -2,3 +2,21 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+.public_bg {
+  background-color: hsl(0, 0%, 98%);
+}
+.public_container {
+  min-height: 84vh;
+  width: 95%;
+  margin: 0 auto;
+}
+.public_container h1,
+.public_container p {
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .public_container {
+    width: 75%;
+  }
+}
