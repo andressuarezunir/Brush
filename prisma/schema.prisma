@@ -30,3 +30,34 @@ model ResetPassword {
   date_created DateTime @default(now())
   status       Boolean  @default(false)
 }
+
+model Paint {
+  id           Int                 @id @default(autoincrement())
+  status       Boolean             @default(true)
+  title        String              @db.VarChar()
+  image        String              @db.VarChar()
+  description  String              @db.VarChar()
+  width        Int
+  height       Int
+  on_sale      Boolean             @default(false)
+  date_start   DateTime
+  date_finish  DateTime
+  date_created DateTime            @default(now())
+  date_updated DateTime            @updatedAt
+  categories   CategoriesOnPaint[]
+}
+
+model PaintCategory {
+  id     Int                 @id @default(autoincrement())
+  name   String              @db.VarChar(50)
+  paints CategoriesOnPaint[]
+}
+
+model CategoriesOnPaint {
+  paint       Paint         @relation(fields: [paint_id], references: [id])
+  paint_id    Int
+  category    PaintCategory @relation(fields: [category_id], references: [id])
+  category_id Int
+
+  @@id([paint_id, category_id])
+}
