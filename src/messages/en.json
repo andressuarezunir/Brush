@@ -1,0 +1,8 @@
+{
+  "test": "This is a test",
+  "change_language": "Change language",
+  "languages": {
+    "english": "English",
+    "spanish": "Spanish"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "test": "Esto es un test",
+  "change_language": "Cambiar de idioma",
+  "languages": {
+    "english": "Inglés",
+    "spanish": "Español"
+  }
+}
