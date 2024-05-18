@@ -114,3 +114,12 @@ model StudyCategory {
   name  String  @db.VarChar(50)
   study Study[]
 }
+
+model Contact {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(100)
+  email     String  @db.VarChar(200)
+  motive    String  @db.VarChar(300)
+  message   String  @db.VarChar()
+  contacted Boolean @default(false)
+}
