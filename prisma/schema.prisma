@@ -87,3 +87,30 @@ model CategoriesOnExperience {
 
   @@id([experience_id, category_id])
 }
+
+model Painter {
+  id              Int    @id @unique
+  name            String @db.VarChar(100)
+  last_name       String @db.VarChar(100)
+  image           String @db.VarChar()
+  welcome_message String @db.VarChar(200)
+  description     String @db.VarChar()
+}
+
+model Study {
+  id          Int           @id @default(autoincrement())
+  status      Boolean       @default(true)
+  title       String        @db.VarChar(50)
+  subtitle    String        @db.VarChar(50)
+  description String        @db.VarChar(300)
+  date_start  DateTime
+  date_finish DateTime
+  category    StudyCategory @relation(fields: [category_id], references: [id])
+  category_id Int
+}
+
+model StudyCategory {
+  id    Int     @id @default(autoincrement())
+  name  String  @db.VarChar(50)
+  study Study[]
+}
