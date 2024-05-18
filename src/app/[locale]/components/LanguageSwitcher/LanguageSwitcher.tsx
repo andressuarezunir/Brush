@@ -1,9 +1,12 @@
-"use client";
-import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { ChangeEvent, useTransition } from "react";
+'use client';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 
-import styles from "./LanguageSwitcher.module.css";
+import styles from './LanguageSwitcher.module.css';
+import EnglishFlag from '/public/english_flag.svg';
+import SpanishFlag from '/public/spanish_flag.svg';
 
 const LanguageSwitcher = () => {
   const router = useRouter();
@@ -12,25 +15,33 @@ const LanguageSwitcher = () => {
   const localActive = useLocale();
   const [isPending, startTransition] = useTransition();
 
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const locale = e.target.value;
-    const newPathname = pathname.replace(/^\/\w+/, "/" + locale);
-
-    startTransition(() => router.replace(newPathname));
+  const onLanguageChange = (locale: string) => {
+    const newPathname = pathname.replace(/^\/\w+/, '/' + locale);
+    startTransition(() => {
+      router.replace(newPathname);
+      router.refresh();
+    });
   };
 
   return (
-    <label className={styles.language_switcher}>
-      <p className={styles.label}>{t("change_language")}</p>
-      <select
-        defaultValue={localActive}
-        onChange={onSelectChange}
+    <>
+      <button
+        onClick={() => {
+          if (localActive === 'en') onLanguageChange('es');
+          else onLanguageChange('en');
+        }}
+        className={styles.language_switcher}
         disabled={isPending}
       >
-        <option value="en">{t("languages.english")}</option>
-        <option value="es">{t("languages.spanish")}</option>
-      </select>
-    </label>
+        <Image
+          src={localActive === 'en' ? EnglishFlag : SpanishFlag}
+          alt="Error img"
+          width={40}
+          height={40}
+          title={t('change_language')}
+        />
+      </button>
+    </>
   );
 };
 

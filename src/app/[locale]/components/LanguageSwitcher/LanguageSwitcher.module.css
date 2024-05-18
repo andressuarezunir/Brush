@@ -2,6 +2,11 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+  cursor: pointer;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
 }
 .label {
   width: 10px;

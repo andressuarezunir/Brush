@@ -4,5 +4,10 @@
   "languages": {
     "english": "Inglés",
     "spanish": "Español"
+  },
+  "error404": {
+    "title": "Página no encontrada",
+    "description": "Al parecer intentaste ingresar en una página que es imposible de hallar o que dejo de estar en uso",
+    "link_text": "Regresar a la página de inicio"
   }
 }

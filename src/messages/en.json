@@ -4,5 +4,10 @@
   "languages": {
     "english": "English",
     "spanish": "Spanish"
+  },
+  "error404": {
+    "title": "Page not found",
+    "description": "It seems that you tried to enter a page that is impossible to find or is no longer in use",
+    "link_text": "Back to home page"
   }
 }
