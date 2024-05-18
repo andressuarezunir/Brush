@@ -61,3 +61,29 @@ model CategoriesOnPaint {
 
   @@id([paint_id, category_id])
 }
+
+model Experience {
+  id           Int                      @id @default(autoincrement())
+  status       Boolean                  @default(true)
+  title        String                   @db.VarChar()
+  image        String                   @db.VarChar()
+  description  String                   @db.VarChar()
+  date_created DateTime                 @default(now())
+  date_updated DateTime                 @updatedAt
+  categories   CategoriesOnExperience[]
+}
+
+model ExperienceCategory {
+  id          Int                      @id @default(autoincrement())
+  name        String                   @db.VarChar(50)
+  experiences CategoriesOnExperience[]
+}
+
+model CategoriesOnExperience {
+  experience    Experience         @relation(fields: [experience_id], references: [id])
+  experience_id Int
+  category      ExperienceCategory @relation(fields: [category_id], references: [id])
+  category_id   Int
+
+  @@id([experience_id, category_id])
+}
