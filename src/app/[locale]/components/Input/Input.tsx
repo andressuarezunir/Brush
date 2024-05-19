@@ -20,7 +20,7 @@ interface InputRuleOptions {
 }
 
 export interface InputProps {
-  type: 'text' | 'password' | 'textarea';
+  type: 'text' | 'password' | 'textarea' | 'dropzone';
   name: string;
   label: string;
   placeholder: string;

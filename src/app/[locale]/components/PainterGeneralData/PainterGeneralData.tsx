@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import { PainterProps } from '../../admin/dashboard/painter/page';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
+import InputDropzone from '../InputDropzone/InputDropzone';
 import InputTextArea from '../InputTextArea/InputTextArea';
 import { updatePainterGeneralData } from './requests';
 
@@ -73,6 +74,18 @@ const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
           message: 'form_errors.input_required'
         }
       }
+    },
+    {
+      type: 'dropzone',
+      name: 'image',
+      label: 'labels.image',
+      placeholder: 'placeholders.image',
+      rules: {
+        required: {
+          value: true,
+          message: 'form_errors.input_required'
+        }
+      }
     }
   ];
 
@@ -102,6 +115,10 @@ const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
         } else if (input.type === 'text') {
           inputToBeRendered = (
             <Input key={input.name} {...input} control={control} />
+          );
+        } else if (input.type === 'dropzone') {
+          inputToBeRendered = (
+            <InputDropzone key={input.name} {...input} control={control} />
           );
         }
         return inputToBeRendered;

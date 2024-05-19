@@ -8,6 +8,10 @@
 .error_message {
   color: hsl(0, 93%, 40%);
 }
+.error_message {
+  padding: 0;
+  margin: 0;
+}
 .input_label {
   font-weight: 700;
 }

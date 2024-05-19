@@ -46,6 +46,7 @@
   "labels": {
     "description": "Description",
     "email": "Email",
+    "image": "image",
     "last_name": "Last name",
     "name": "Name",
     "new_password": "New password",
@@ -56,6 +57,7 @@
   "placeholders": {
     "description": "Enter description",
     "email": "Enter email",
+    "image": "Select image",
     "last_name": "Enter last name",
     "name": "Enter name",
     "new_password": "Enter new password",
