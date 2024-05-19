@@ -1,0 +1,18 @@
+.dashboardLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0 0.5rem;
+  gap: 1rem;
+}
+.dashboardInnerPage {
+  height: 98vh;
+  width: 100%;
+  overflow-y: auto;
+}
+.dashboardInnerPage h1 {
+  color: hsl(230, 47%, 27%);
+  font-weight: 700;
+}

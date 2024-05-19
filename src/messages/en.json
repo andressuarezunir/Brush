@@ -18,7 +18,8 @@
     "contact": "Contact",
     "login": "Login",
     "forgot_pw": "Forgot password",
-    "change_pw": "Change password"
+    "change_pw": "Change password",
+    "painter": "Painter"
   },
   "metadata": {
     "public_home": "On this page you will find the introduction to the painter's page",
@@ -28,7 +29,10 @@
     "public_contact": "On this page you will be able to contact the painter by filling in a form",
     "login": "This page is intended for the exclusive use of the painter to log in and modify the records",
     "forgot_pw": "This page is intended for the exclusive use of the painter to request a password change",
-    "change_pw": "This page is intended for the exclusive use of the painter to set the new password"
+    "change_pw": "This page is intended for the exclusive use of the painter to set the new password",
+    "admin_painter": "This page is intended for the exclusive use of the painter to update his personal and studio data",
+    "admin_paints": "This page is intended for the exclusive use of the painter to update his paints",
+    "admin_experiences": "This page is intended for the exclusive use of the painter to update his experiences"
   },
   "return_link": {
     "home": "Return to public page",
@@ -36,6 +40,7 @@
   },
   "buttons": {
     "forgot_pw": "Forgot my password",
+    "logout": "Logout",
     "submit": "Submit"
   },
   "labels": {

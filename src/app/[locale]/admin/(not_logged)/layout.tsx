@@ -19,7 +19,7 @@ export default function RootAdminPage({ children }: Props) {
     <div className={styles.admin_container}>
       <div className={styles.admin_bg}>
         <div className={styles.admin_not_logged_form}>
-          <Image src="/app_logo.svg" alt="app logo" width={500} height={80} />
+          <Image src="/app_logo.svg" alt="app logo" width={280} height={80} />
           {children}
         </div>
       </div>

@@ -1,8 +1,13 @@
 .publicForm {
   background-color: hsl(0, 0%, 95%);
-  padding: 3rem 5rem;
+  padding: 3rem;
   border-radius: 5%;
-  width: 100%;
+}
+@media (min-width: 768px) {
+  .publicForm {
+    padding: 3rem 5rem;
+    width: 100%;
+  }
 }
 .submitBtn {
   width: 100%;

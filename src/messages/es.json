@@ -12,13 +12,14 @@
   },
   "sections": {
     "home": "Inicio",
-    "paints": "Obras",
+    "paints": "Pinturas",
     "experiences": "Experiencias",
     "about_me": "Sobre mí",
     "contact": "Contacto",
     "login": "Logueo",
     "forgot_pw": "Olvido de contraseña",
-    "change_pw": "Cambio de contraseña"
+    "change_pw": "Cambio de contraseña",
+    "painter": "Pintor"
   },
   "metadata": {
     "public_home": "En esta página se encuentra la introducción a la página del pintor",
@@ -28,7 +29,10 @@
     "public_contact": "En esta página se encarga de poder mostrar entrar en contacto con el pintor a traves de un formulario",
     "login": "Esta página está destinada para uso exclusivo del pintor para poder loguearse y modificar los registros",
     "forgot_pw": "Esta página está destinada para uso exclusivo del pintor para solicitar el cambio de contraseña",
-    "change_pw": "Esta página está destinada para uso exclusivo del pintor para establecer la nueva contraseña"
+    "change_pw": "Esta página está destinada para uso exclusivo del pintor para establecer la nueva contraseña",
+    "admin_painter": "Esta página está destinada para uso exclusivo del pintor para actualizar sus datos personales y de estudio",
+    "admin_paints": "Esta página está destinada para uso exclusivo del pintor para actualizar sus pinturas",
+    "admin_experiences": "Esta página está destinada para uso exclusivo del pintor para actualizar sus experiencias"
   },
   "return_link": {
     "home": "Volver a la página pública",
@@ -36,6 +40,7 @@
   },
   "buttons": {
     "forgot_pw": "Olvide mi contraseña",
+    "logout": "Cerrar sesión",
     "submit": "Enviar"
   },
   "labels": {

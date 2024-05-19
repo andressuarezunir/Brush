@@ -5,17 +5,17 @@ export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
   const t = await getTranslations({ locale });
   return {
-    title: `Brush - ${t('sections.painter')}`,
-    description: t('metadata.admin_painter')
+    title: `Brush - ${t('sections.experiences')}`,
+    description: t('metadata.admin_experiences')
   };
 }
 
-export default async function PainterPage() {
+export default async function ExperiencesPage() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
   const t = await getTranslations({ locale });
   return (
     <div>
-      <h1>{t('sections.painter')}</h1>
+      <h1>{t('sections.experiences')}</h1>
     </div>
   );
 }

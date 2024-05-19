@@ -1,10 +1,11 @@
+//* External
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Mulish } from 'next/font/google';
+import { cookies } from 'next/headers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { cookies } from 'next/headers';
+//* App Custom
 import LanguageSwitcher from './[locale]/components/LanguageSwitcher/LanguageSwitcher';
 import styles from './globals.module.css';
 

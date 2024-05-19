@@ -1,6 +1,8 @@
 .html_global body {
   padding: 0 !important;
   margin: 0 !important;
+  scroll-behavior: auto;
+  box-sizing: border-box;
 }
 
 .public_bg {
