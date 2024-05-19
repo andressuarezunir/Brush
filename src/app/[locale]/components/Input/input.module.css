@@ -1,0 +1,27 @@
+.input_container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.required_symbol,
+.error_message {
+  color: hsl(0, 93%, 40%);
+}
+.input_label {
+  font-weight: 700;
+}
+.required_symbol {
+  font-weight: 700;
+  margin-left: 0.1rem;
+}
+.input {
+  height: 40px;
+  border: none !important;
+  outline: none;
+  background-color: hsl(0, 0%, 100%) !important;
+  border-radius: 0.2rem;
+  padding-left: 1rem;
+}
+.input:disabled {
+  background-color: hsl(0, 0%, 97%) !important;
+}

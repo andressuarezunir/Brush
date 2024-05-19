@@ -1,0 +1,46 @@
+.publicForm {
+  background-color: hsl(0, 0%, 95%);
+  padding: 3rem 5rem;
+  border-radius: 5%;
+  width: 100%;
+}
+.submitBtn {
+  width: 100%;
+  background-color: hsl(14, 100%, 65%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  padding: 1rem 0;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.submitBtn:hover {
+  background-color: hsl(14, 79%, 50%);
+}
+.submitBtn:disabled {
+  background-color: hsl(13, 100%, 89%);
+  cursor: default;
+}
+.link_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #2a2c32;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+.link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+.link a {
+  margin: 0;
+  padding: 0;
+}

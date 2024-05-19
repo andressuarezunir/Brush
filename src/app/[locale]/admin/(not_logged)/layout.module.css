@@ -1,0 +1,38 @@
+.admin_bg {
+  background-image: url('../../../../../public/regural_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 92.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin_container h1,
+.admin_container p {
+  margin: 0;
+  padding: 0;
+}
+.admin_container h1 {
+  visibility: hidden;
+  height: 0;
+}
+.admin_not_logged_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #2a2c32;
+  margin-bottom: 1rem;
+}
+.link:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}

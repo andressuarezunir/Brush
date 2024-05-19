@@ -26,6 +26,7 @@ const LanguageSwitcher = () => {
   return (
     <>
       <button
+        type="button"
         onClick={() => {
           if (localActive === 'en') onLanguageChange('es');
           else onLanguageChange('en');

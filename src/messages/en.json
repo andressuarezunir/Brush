@@ -5,23 +5,52 @@
     "english": "English",
     "spanish": "Spanish"
   },
+  "error404": {
+    "title": "Page not found",
+    "description": "It seems that you tried to enter a page that is impossible to find or is no longer in use",
+    "link_text": "Back to home page"
+  },
   "sections": {
     "home": "Home",
     "paints": "Paints",
     "experiences": "Experiences",
     "about_me": "About me",
-    "contact": "Contact"
-  },
-  "error404": {
-    "title": "Page not found",
-    "description": "It seems that you tried to enter a page that is impossible to find or is no longer in use",
-    "link_text": "Back to home page"
+    "contact": "Contact",
+    "login": "Login",
+    "forgot_pw": "Forgot password",
+    "change_pw": "Change password"
   },
   "metadata": {
     "public_home": "On this page you will find the introduction to the painter's page",
     "public_paints": "On this page you will find all the works of the painter and in which you can filter the following works",
     "public_experiences": "On this page you will find all the painter's experiences and you can filter them as follows",
     "public_about_me": "This page is dedicated to the painter and the path he has taken",
-    "public_contact": "On this page you will be able to contact the painter by filling in a form"
+    "public_contact": "On this page you will be able to contact the painter by filling in a form",
+    "login": "This page is intended for the exclusive use of the painter to log in and modify the records",
+    "forgot_pw": "This page is intended for the exclusive use of the painter to request a password change",
+    "change_pw": "This page is intended for the exclusive use of the painter to set the new password"
+  },
+  "return_link": {
+    "home": "Return to public page",
+    "login": "Return to login"
+  },
+  "buttons": {
+    "forgot_pw": "Forgot my password",
+    "submit": "Submit"
+  },
+  "labels": {
+    "email": "Email",
+    "new_password": "New password",
+    "password": "Password",
+    "verify_password": "Verify password"
+  },
+  "placeholders": {
+    "email": "Enter email",
+    "new_password": "Enter new password",
+    "password": "Enter password",
+    "verify_password": "Enter the new password again"
+  },
+  "form_errors": {
+    "input_required": "This field es required"
   }
 }

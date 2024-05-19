@@ -5,23 +5,52 @@
     "english": "Inglés",
     "spanish": "Español"
   },
+  "error404": {
+    "title": "Página no encontrada",
+    "description": "Al parecer intentaste ingresar en una página que es imposible de hallar o que dejo de estar en uso",
+    "link_text": "Regresar a la página de inicio"
+  },
   "sections": {
     "home": "Inicio",
     "paints": "Obras",
     "experiences": "Experiencias",
     "about_me": "Sobre mí",
-    "contact": "Contacto"
-  },
-  "error404": {
-    "title": "Página no encontrada",
-    "description": "Al parecer intentaste ingresar en una página que es imposible de hallar o que dejo de estar en uso",
-    "link_text": "Regresar a la página de inicio"
+    "contact": "Contacto",
+    "login": "Logueo",
+    "forgot_pw": "Olvido de contraseña",
+    "change_pw": "Cambio de contraseña"
   },
   "metadata": {
     "public_home": "En esta página se encuentra la introducción a la página del pintor",
     "public_paints": "En esta página se encuentran todas las obras del pintor y en la cual se pueden filtrar",
     "public_experiences": "En esta página se encuentran todas las experiencias del pintor y en la cual se pueden filtrar",
     "public_about_me": "En esta página está dedicada para dar a conocer al pintor y el recorrido que lleva",
-    "public_contact": "En esta página se encarga de poder mostrar entrar en contacto con el pintor a traves de un formulario"
+    "public_contact": "En esta página se encarga de poder mostrar entrar en contacto con el pintor a traves de un formulario",
+    "login": "Esta página está destinada para uso exclusivo del pintor para poder loguearse y modificar los registros",
+    "forgot_pw": "Esta página está destinada para uso exclusivo del pintor para solicitar el cambio de contraseña",
+    "change_pw": "Esta página está destinada para uso exclusivo del pintor para establecer la nueva contraseña"
+  },
+  "return_link": {
+    "home": "Volver a la página pública",
+    "login": "Volver a la página de logueo"
+  },
+  "buttons": {
+    "forgot_pw": "Olvide mi contraseña",
+    "submit": "Enviar"
+  },
+  "labels": {
+    "email": "Correo electrónico",
+    "new_password": "Nueva contraseña",
+    "password": "Contraseña",
+    "verify_password": "Verificar contraseña"
+  },
+  "placeholders": {
+    "email": "Ingresar correo electrónico",
+    "new_password": "Ingresar nueva contraseña",
+    "password": "Ingresar contraseña",
+    "verify_password": "Ingresar la nueva contraseña de nuevo"
+  },
+  "form_errors": {
+    "input_required": "Este campo es requerido"
   }
 }
