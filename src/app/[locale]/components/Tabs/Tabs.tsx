@@ -16,7 +16,6 @@ const PainterTabs = ({ painter }: PainterTabs) => {
   const t = useTranslations();
   const [tabSelected, setTabSelected] = useState('general');
   const tabs = ['general', 'studies'];
-  console.log(painter);
 
   return (
     <div className={styles.painter_container}>

@@ -47,7 +47,7 @@ export async function PATCH(request: Request) {
     return NextResponse.json(painterUpdated);
   } catch (error) {
     return NextResponse.json(
-      { error_message: 'Painter not updated' },
+      { error_message: 'Painter general data not updated' },
       { status: 400 }
     );
   }

@@ -1,16 +1,24 @@
 //* External
+import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 //* App Custom
 import { PainterProps } from '../../admin/dashboard/painter/page';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
 import InputTextArea from '../InputTextArea/InputTextArea';
+import { updatePainterGeneralData } from './requests';
 
 interface PainterGeneralDataProps {
   painter: PainterProps;
 }
 
 const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
+  const router = useRouter();
+  const t = useTranslations();
+  const [doingRequest, setDoingRequest] = useState(false);
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
 
   const inputs: InputProps[] = [
@@ -68,8 +76,19 @@ const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
     }
   ];
 
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
+  const onSubmit = async (data: FieldValues) => {
+    setDoingRequest(true);
+    const formData = new FormData();
+    Object.entries(data).map((field) => {
+      formData.append(field[0], field[1]);
+    });
+    formData.append('painter_id', '1');
+    const painter = await updatePainterGeneralData(formData);
+    setDoingRequest(false);
+    if (painter?.error_message) {
+      toast(t(`toasts.${painter?.error_message}`), { type: 'error' });
+    } else toast(t(`toasts.painter_general_data_updated`), { type: 'success' });
+    router.refresh();
   };
 
   return (
@@ -90,7 +109,7 @@ const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
       <Button
         type="submit"
         text="buttons.submit"
-        disabled={!formState.isValid}
+        disabled={!formState.isValid || doingRequest}
       />
     </form>
   );

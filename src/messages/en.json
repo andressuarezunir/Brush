@@ -71,10 +71,12 @@
   },
   "toasts": {
     "Credentials were not found": "Credentials were not found",
+    "Painter general data not updated": "Painter general data not updated",
     "Password updated, you can log with the new one": "Password updated, you can log with the new one",
     "Passwords do not match": "Passwords do not match",
     "Token is no longer available": "Token is no longer available",
-    "User not found": "User not found"
+    "User not found": "User not found",
+    "painter_general_data_updated": "Painter general data updated"
   },
   "tabs": {
     "general": "Update general data",
