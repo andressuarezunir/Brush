@@ -18,7 +18,7 @@ interface PainterTabs {
 
 const PainterTabs = ({ painter, studies }: PainterTabs) => {
   const t = useTranslations();
-  const [tabSelected, setTabSelected] = useState('studies');
+  const [tabSelected, setTabSelected] = useState('general');
   const tabs = ['general', 'studies'];
 
   return (

@@ -45,12 +45,12 @@ const InputDropzone = ({
             noDrag
           >
             {({ getRootProps, getInputProps }) => (
-              <div
-                {...getRootProps()}
-                className={dropzoneStyles.input_dropzone}
-              >
-                <input {...getInputProps()} hidden />
-                <div className={dropzoneStyles.icon_container}>
+              <div className={dropzoneStyles.input_dropzone}>
+                <div
+                  className={dropzoneStyles.icon_container}
+                  {...getRootProps()}
+                >
+                  <input {...getInputProps()} hidden />
                   <FaFileUpload />
                 </div>
                 {!fileSelected ? t(placeholder) : <>{fileSelected?.path}</>}
