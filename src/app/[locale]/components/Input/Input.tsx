@@ -1,6 +1,8 @@
 'use client';
+//* External
 import { useTranslations } from 'next-intl';
 import { Control, Controller } from 'react-hook-form';
+//* App Custom
 import styles from './input.module.css';
 
 interface InputRequiredRule {

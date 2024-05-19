@@ -1,9 +1,10 @@
+//* External
 import { useLocale, useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { FaArrowLeft } from 'react-icons/fa6';
-
+//* App Custom
 import PublicForm from '@/app/[locale]/components/PublicForm/PublicForm';
 import layoutStyles from '../layout.module.css';
 

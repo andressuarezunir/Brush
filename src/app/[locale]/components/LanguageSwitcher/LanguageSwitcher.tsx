@@ -1,9 +1,10 @@
 'use client';
+//* External
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTransition } from 'react';
-
+//* App Custom
 import styles from './LanguageSwitcher.module.css';
 import EnglishFlag from '/public/english_flag.svg';
 import SpanishFlag from '/public/spanish_flag.svg';

@@ -52,5 +52,15 @@
   },
   "form_errors": {
     "input_required": "Este campo es requerido"
+  },
+  "titles": {
+    "missing_inputs_required": "Hay campos requeridos que no se han completado"
+  },
+  "toasts": {
+    "Credentials were not found": "Las credenciales no fueron proporcionados",
+    "Password updated, you can log with the new one": "La contraseña fue actualizada, ya puede loguearse con la nueva",
+    "Passwords do not match": "Las contraseñas no coinciden",
+    "Token is no longer available": "El token ya no está habilitado",
+    "User not found": "Usuario no encontrado"
   }
 }

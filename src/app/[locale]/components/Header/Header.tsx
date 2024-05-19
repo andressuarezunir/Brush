@@ -1,5 +1,8 @@
+//* Externals
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
+//* App Custom
 import styles from './Header.module.css';
 import HeaderLinks from './HeaderLink';
 
@@ -17,7 +20,9 @@ const Header = () => {
   return (
     <div className={styles.header_bg}>
       <div className={styles.header_container}>
-        <Image src="/app_logo.svg" alt="app logo" width={100} height={30} />
+        <Link href={`/${localActive}/admin`}>
+          <Image src="/app_logo.svg" alt="app logo" width={100} height={30} />
+        </Link>
         <HeaderLinks data={links} />
       </div>
     </div>

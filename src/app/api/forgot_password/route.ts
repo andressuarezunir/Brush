@@ -10,6 +10,9 @@ export async function GET(request: Request) {
     const { token } = await prisma.resetPassword.create({ data: {} });
     return NextResponse.json({ token, email: user.email });
   } else {
-    return NextResponse.json({ message: 'User not found' }, { status: 400 });
+    return NextResponse.json(
+      { error_message: 'User not found' },
+      { status: 400 }
+    );
   }
 }

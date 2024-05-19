@@ -13,5 +13,10 @@ export async function GET(request: Request) {
     }
   });
   if (user) return NextResponse.json(user);
-  else return NextResponse.json({ message: 'User not found' }, { status: 400 });
+  else {
+    return NextResponse.json(
+      { error_message: 'User not found' },
+      { status: 400 }
+    );
+  }
 }

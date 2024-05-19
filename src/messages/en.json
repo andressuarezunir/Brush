@@ -52,5 +52,15 @@
   },
   "form_errors": {
     "input_required": "This field es required"
+  },
+  "titles": {
+    "missing_inputs_required": "There are required fields that have not been completed"
+  },
+  "toasts": {
+    "Credentials were not found": "Credentials were not found",
+    "Password updated, you can log with the new one": "Password updated, you can log with the new one",
+    "Passwords do not match": "Passwords do not match",
+    "Token is no longer available": "Token is no longer available",
+    "User not found": "User not found"
   }
 }

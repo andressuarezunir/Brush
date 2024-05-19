@@ -7,24 +7,39 @@ export async function PATCH(request: Request) {
   const email = searchParams.get('email') ?? '';
 
   if (token && email) {
-    const { password, verify_password } = await request.json();
-    if (password === verify_password) {
-      await prisma.user.update({
-        where: { email },
-        data: { password }
-      });
-      await prisma.resetPassword.update({
-        where: { token },
-        data: { status: true }
-      });
-      return NextResponse.json({ message: 'Password updated' });
+    const tokenObtained = await prisma.resetPassword.findUnique({
+      where: { token, status: false }
+    });
+    if (tokenObtained) {
+      const { password, verify_password } = await request.json();
+      if (password === verify_password) {
+        await prisma.user.update({
+          where: { email },
+          data: { password }
+        });
+        await prisma.resetPassword.update({
+          where: { token },
+          data: { status: true }
+        });
+        return NextResponse.json({
+          success_message: 'Password updated, you can log with the new one'
+        });
+      } else {
+        return NextResponse.json(
+          { error_message: 'Passwords do not match' },
+          { status: 400 }
+        );
+      }
     } else {
       return NextResponse.json(
-        { message: 'Credentials do not match' },
+        { error_message: 'Token is no longer available' },
         { status: 400 }
       );
     }
   } else {
-    return NextResponse.json({ message: 'Token not found' }, { status: 400 });
+    return NextResponse.json(
+      { error_message: 'Credentials were not found' },
+      { status: 400 }
+    );
   }
 }

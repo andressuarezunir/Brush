@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
 }
+.admin_container,
 .admin_container h1,
 .admin_container p {
   margin: 0;
@@ -22,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 .link {
   display: flex;
@@ -30,7 +31,6 @@
   gap: 0.5rem;
   text-decoration: none;
   color: #2a2c32;
-  margin-bottom: 1rem;
 }
 .link:hover {
   text-decoration: underline;
