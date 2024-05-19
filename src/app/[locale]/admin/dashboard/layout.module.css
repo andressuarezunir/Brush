@@ -1,5 +1,10 @@
-.dashboardLayout {
+.dashboard_layout {
+  background-image: url('../../../../../public/regural_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   height: 100vh;
@@ -7,12 +12,25 @@
   padding: 0 0.5rem;
   gap: 1rem;
 }
-.dashboardInnerPage {
+.dashboard_inner_page {
   height: 98vh;
   width: 100%;
   overflow-y: auto;
 }
-.dashboardInnerPage h1 {
+.dashboard_inner_page h1 {
   color: hsl(230, 47%, 27%);
+  font-weight: 700;
+}
+.dashboard_footer_container {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 0.5rem;
+}
+.dashboard_footer_container p {
+  margin: 0;
+  padding: 0;
+}
+.dashboard_footer_bold {
   font-weight: 700;
 }

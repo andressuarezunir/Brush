@@ -44,16 +44,24 @@
     "submit": "Enviar"
   },
   "labels": {
+    "description": "Descripción",
     "email": "Correo electrónico",
+    "last_name": "Apellido",
+    "name": "Nomber",
     "new_password": "Nueva contraseña",
     "password": "Contraseña",
-    "verify_password": "Verificar contraseña"
+    "verify_password": "Verificar contraseña",
+    "welcome_message": "Mensaje de bienvenida"
   },
   "placeholders": {
+    "description": "Ingresar descripción",
     "email": "Ingresar correo electrónico",
+    "last_name": "Ingresar apellido",
+    "name": "Ingresar nombre",
     "new_password": "Ingresar nueva contraseña",
     "password": "Ingresar contraseña",
-    "verify_password": "Ingresar la nueva contraseña de nuevo"
+    "verify_password": "Ingresar la nueva contraseña de nuevo",
+    "welcome_message": "Ingresar mensaje de bienvenida"
   },
   "form_errors": {
     "input_required": "Este campo es requerido"
@@ -67,5 +75,9 @@
     "Passwords do not match": "Las contraseñas no coinciden",
     "Token is no longer available": "El token ya no está habilitado",
     "User not found": "Usuario no encontrado"
+  },
+  "tabs": {
+    "general": "Actualizar datos generales",
+    "studies": "Actualizar datos de estudios"
   }
 }

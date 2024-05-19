@@ -1,36 +1,13 @@
 'use client';
 //* External
 import { useTranslations } from 'next-intl';
-import { Control, Controller } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 //* App Custom
-import styles from './input.module.css';
+import { InputProps } from '../Input/Input';
+import styles from '../Input/input.module.css';
+import textAreaStyles from './inputTextArea.module.css';
 
-interface InputRequiredRule {
-  value: boolean;
-  message: string;
-}
-interface InputRegexRule {
-  value: RegExp;
-  message: string;
-}
-
-interface InputRuleOptions {
-  required?: InputRequiredRule;
-  pattern?: InputRegexRule;
-}
-
-export interface InputProps {
-  type: 'text' | 'password' | 'textarea';
-  name: string;
-  label: string;
-  placeholder: string;
-  defaultValue?: string | number;
-  rules?: InputRuleOptions;
-  control?: Control;
-}
-
-const Input = ({
-  type,
+const InputTextArea = ({
   name,
   label,
   placeholder,
@@ -54,14 +31,13 @@ const Input = ({
               <span className={styles.required_symbol}>*</span>
             )}
           </label>
-          <input
-            type={type}
+          <textarea
+            rows={5}
             id={name}
-            name={name}
             placeholder={t(placeholder)}
             defaultValue={defaultValue}
             onChange={onChange}
-            className={styles.input}
+            className={textAreaStyles.input_text_area}
           />
           {error?.message && (
             <p className={styles.error_message}>{t(error?.message)}</p>
@@ -72,4 +48,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default InputTextArea;

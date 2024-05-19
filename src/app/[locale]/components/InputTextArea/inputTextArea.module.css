@@ -1,0 +1,9 @@
+.input_text_area {
+  outline: none;
+  border: 1px solid hsl(0, 0%, 80%);
+  resize: none;
+  border-radius: 0.2rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  font-family: inherit;
+}

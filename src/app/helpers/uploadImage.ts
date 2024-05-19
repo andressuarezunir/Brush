@@ -23,7 +23,7 @@ export const uploadImage = async (image: File) => {
       ''
     )}-${uniqueSuffix}.${mime.getExtension(image.type)}`;
     await writeFile(`${uploadDir}/${filename}`, buffer);
-    const fileUrl = `${relativeUploadDir}/${filename}`;
+    const fileUrl = `${relativeUploadDir}${filename}`;
     return fileUrl;
   } catch (e) {
     return 'Image could not be uploaded';

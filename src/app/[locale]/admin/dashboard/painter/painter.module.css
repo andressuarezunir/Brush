@@ -1,0 +1,33 @@
+.painter_divider {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+.painter_card {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .painter_divider {
+    flex-direction: row;
+  }
+  .painter_card {
+    display: block;
+    width: 130px;
+  }
+}
+
+.painter_card {
+  width: 130px;
+}
+.painter_image {
+  border-radius: 100%;
+  object-fit: cover;
+}
+.painter_name {
+  font-weight: 700;
+  text-align: center;
+  font-size: 25px;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,36 @@
+.painter_container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.painter_tabs {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .painter_tabs {
+    flex-direction: row;
+  }
+}
+.painter_tab {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid hsl(230, 6%, 58%);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.painter_tab:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+.painter_tab_active {
+  background-color: hsl(14, 100%, 65%);
+  border-bottom: none;
+  border-top: 1px solid hsl(230, 6%, 58%);
+  border-left: 1px solid hsl(230, 6%, 58%);
+  border-right: 1px solid hsl(230, 6%, 58%);
+}
+.painter_sections {
+  margin-top: 1rem;
+}

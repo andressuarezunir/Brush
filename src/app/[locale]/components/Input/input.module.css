@@ -17,7 +17,7 @@
 }
 .input {
   height: 40px;
-  border: none !important;
+  border: 1px solid hsl(0, 0%, 80%);
   outline: none;
   background-color: hsl(0, 0%, 100%) !important;
   border-radius: 0.2rem;
