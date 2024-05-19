@@ -20,10 +20,10 @@ interface InputRuleOptions {
 }
 
 export interface InputProps {
-  type: 'text' | 'password' | 'textarea' | 'dropzone';
+  type: 'text' | 'password' | 'textarea' | 'dropzone' | 'date';
   name: string;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   defaultValue?: string | number;
   rules?: InputRuleOptions;
   control?: Control;
@@ -48,7 +48,7 @@ const Input = ({
       defaultValue={defaultValue}
       render={({ field: { onChange }, fieldState: { error } }) => (
         <div key={name} className={styles.input_container}>
-          <label className={styles.input_label}>
+          <label className={styles.input_label} htmlFor={name}>
             {label && t(label)}
             {rules?.required?.value && (
               <span className={styles.required_symbol}>*</span>
@@ -58,7 +58,7 @@ const Input = ({
             type={type}
             id={name}
             name={name}
-            placeholder={t(placeholder)}
+            placeholder={placeholder && t(placeholder)}
             defaultValue={defaultValue}
             onChange={onChange}
             className={styles.input}

@@ -4,12 +4,19 @@ import { NextResponse } from 'next/server';
 export async function GET(_: Request) {
   try {
     const studies = await prisma.studyCategory.findMany({
-      include: { study: true }
+      include: { study: true },
+      where: {
+        study: {
+          every: {
+            status: true
+          }
+        }
+      }
     });
     return NextResponse.json(studies);
   } catch (error) {
     return NextResponse.json(
-      { message: 'Error in request', error },
+      { error_message: 'Error in request' },
       { status: 500 }
     );
   }
@@ -23,7 +30,7 @@ export async function POST(request: Request) {
     return NextResponse.json(study);
   } catch (error) {
     return NextResponse.json(
-      { message: 'Error in request', error },
+      { error_message: 'Error in request' },
       { status: 500 }
     );
   }

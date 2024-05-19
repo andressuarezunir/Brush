@@ -39,28 +39,38 @@
     "login": "Return to login"
   },
   "buttons": {
+    "delete_study": "Delete study",
     "forgot_pw": "Forgot my password",
     "logout": "Logout",
-    "submit": "Submit"
+    "submit": "Submit",
+    "update_study": "Update study"
   },
   "labels": {
+    "category": "Category",
+    "date_finish": "Finish date",
+    "date_start": "Start date",
     "description": "Description",
     "email": "Email",
-    "image": "image",
+    "image": "Image",
     "last_name": "Last name",
     "name": "Name",
     "new_password": "New password",
     "password": "Password",
+    "subtitle": "Subtitle",
+    "title": "Title",
     "verify_password": "Verify password",
     "welcome_message": "Welcome message"
   },
   "placeholders": {
+    "category": "Select category",
     "description": "Enter description",
     "email": "Enter email",
     "image": "Select image",
     "last_name": "Enter last name",
     "name": "Enter name",
     "new_password": "Enter new password",
+    "subtitle": "Enter subtitle",
+    "title": "Enter title",
     "password": "Enter password",
     "verify_password": "Enter the new password again",
     "welcome_message": "Enter welcome message"
@@ -73,12 +83,16 @@
   },
   "toasts": {
     "Credentials were not found": "Credentials were not found",
+    "Error in request": "Error in request",
     "Painter general data not updated": "Painter general data not updated",
     "Password updated, you can log with the new one": "Password updated, you can log with the new one",
     "Passwords do not match": "Passwords do not match",
+    "Study could not be updated or deleted": "Study could not be updated or deleted",
     "Token is no longer available": "Token is no longer available",
     "User not found": "User not found",
-    "painter_general_data_updated": "Painter general data updated"
+    "painter_general_data_updated": "Painter general data updated",
+    "painter_study_deleted": "Painter study deleted",
+    "painter_study_updated": "Painter study updated"
   },
   "tabs": {
     "general": "Update general data",

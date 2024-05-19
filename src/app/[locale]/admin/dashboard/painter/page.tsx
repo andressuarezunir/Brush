@@ -3,18 +3,9 @@ import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 //* App Custom
-import PainterTabs from '@/app/[locale]/components/Tabs/Tabs';
+import PainterTabs from '@/app/[locale]/components/PainterTabs/PainterTabs';
 import prisma from '@/lib/prisma';
 import styles from './painter.module.css';
-
-export interface PainterProps {
-  id: number;
-  name: string;
-  last_name: string;
-  image: string;
-  welcome_message: string;
-  description: string;
-}
 
 export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
@@ -36,6 +27,17 @@ export default async function PainterPage() {
     welcome_message: '',
     description: ''
   };
+  const studies =
+    (await prisma.studyCategory.findMany({
+      include: { study: true },
+      where: {
+        study: {
+          every: {
+            status: true
+          }
+        }
+      }
+    })) || [];
 
   return (
     <div>
@@ -53,7 +55,7 @@ export default async function PainterPage() {
             {painter!.name} {painter!.last_name}
           </p>
         </div>
-        <PainterTabs painter={painter} />
+        <PainterTabs painter={painter} studies={studies} />
       </div>
     </div>
   );

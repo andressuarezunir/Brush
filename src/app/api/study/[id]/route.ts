@@ -13,7 +13,7 @@ export async function PATCH(request: Request, { params }: Segment) {
     return NextResponse.json(study);
   } catch (error) {
     return NextResponse.json(
-      { message: 'Error in request', error },
+      { error_message: 'Study could not be updated or deleted' },
       { status: 500 }
     );
   }

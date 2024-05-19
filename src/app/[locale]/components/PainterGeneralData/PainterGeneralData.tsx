@@ -5,18 +5,26 @@ import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 //* App Custom
-import { PainterProps } from '../../admin/dashboard/painter/page';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
 import InputDropzone from '../InputDropzone/InputDropzone';
 import InputTextArea from '../InputTextArea/InputTextArea';
 import { updatePainterGeneralData } from './requests';
 
-interface PainterGeneralDataProps {
-  painter: PainterProps;
+export interface PainterGeneralDataProps {
+  id: number;
+  name: string;
+  last_name: string;
+  image: string;
+  welcome_message: string;
+  description: string;
 }
 
-const PainterGeneralData = ({ painter }: PainterGeneralDataProps) => {
+interface Props {
+  painter: PainterGeneralDataProps;
+}
+
+const PainterGeneralData = ({ painter }: Props) => {
   const router = useRouter();
   const t = useTranslations();
   const [doingRequest, setDoingRequest] = useState(false);

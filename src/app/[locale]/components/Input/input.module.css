@@ -26,6 +26,8 @@
   background-color: hsl(0, 0%, 100%) !important;
   border-radius: 0.2rem;
   padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: inherit;
 }
 .input:disabled {
   background-color: hsl(0, 0%, 97%) !important;

@@ -3,18 +3,22 @@
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 //* App Custom
-import { PainterProps } from '../../admin/dashboard/painter/page';
-import PainterGeneralData from '../PainterGeneralData/PainterGeneralData';
-import PainterStudiesData from '../PainterStudiesData/PainterStudiesData';
-import styles from './tabs.module.css';
+import PainterGeneralData, {
+  PainterGeneralDataProps
+} from '../PainterGeneralData/PainterGeneralData';
+import PainterStudiesData, {
+  PainterStudiesProps
+} from '../PainterStudiesData/PainterStudiesData';
+import styles from './painterTabs.module.css';
 
 interface PainterTabs {
-  painter: PainterProps;
+  painter: PainterGeneralDataProps;
+  studies: PainterStudiesProps[];
 }
 
-const PainterTabs = ({ painter }: PainterTabs) => {
+const PainterTabs = ({ painter, studies }: PainterTabs) => {
   const t = useTranslations();
-  const [tabSelected, setTabSelected] = useState('general');
+  const [tabSelected, setTabSelected] = useState('studies');
   const tabs = ['general', 'studies'];
 
   return (
@@ -34,7 +38,7 @@ const PainterTabs = ({ painter }: PainterTabs) => {
       </div>
       <div className={styles.painter_sections}>
         {tabSelected === 'general' && <PainterGeneralData painter={painter} />}
-        {tabSelected === 'studies' && <PainterStudiesData />}
+        {tabSelected === 'studies' && <PainterStudiesData studies={studies} />}
       </div>
     </div>
   );

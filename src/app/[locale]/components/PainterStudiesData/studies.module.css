@@ -1,0 +1,18 @@
+.patient_studies {
+  height: 77vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.patient_study {
+  background-color: hsl(0, 0%, 98%);
+  border: 1px solid hsl(0, 0%, 20%);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+}
+.patient_study_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

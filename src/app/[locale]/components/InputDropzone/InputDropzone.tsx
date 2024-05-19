@@ -30,7 +30,7 @@ const InputDropzone = ({
       defaultValue={defaultValue}
       render={({ field: { onChange }, fieldState: { error } }) => (
         <div key={name} className={styles.input_container}>
-          <label className={styles.input_label}>
+          <label className={styles.input_label} htmlFor={name}>
             {label && t(label)}
             {rules?.required?.value && (
               <span className={styles.required_symbol}>*</span>

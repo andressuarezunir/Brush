@@ -4,14 +4,16 @@ import { useTranslations } from 'next-intl';
 import styles from './button.module.css';
 
 interface ButtonProps {
-  type: 'button' | 'submit';
+  type?: 'button' | 'submit';
+  variant?: 'primary' | 'secondary';
   text: string;
-  disabled: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
 const Button = ({
   type = 'button',
+  variant = 'primary',
   text = '',
   disabled = false,
   onClick
@@ -22,7 +24,9 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={styles.btn}
+      className={`${styles.btn} ${
+        variant === 'primary' ? styles.btn_primary : styles.btn_secondary
+      }`}
     >
       {t(text)}
     </button>

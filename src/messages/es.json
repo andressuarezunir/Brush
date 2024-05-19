@@ -39,11 +39,16 @@
     "login": "Volver a la página de logueo"
   },
   "buttons": {
+    "delete_study": "Eliminar estudio",
     "forgot_pw": "Olvide mi contraseña",
     "logout": "Cerrar sesión",
-    "submit": "Enviar"
+    "submit": "Enviar",
+    "update_study": "Actualizar estudio"
   },
   "labels": {
+    "category": "Categoría",
+    "date_finish": "Fecha de fin",
+    "date_start": "Fecha de inicio",
     "description": "Descripción",
     "email": "Correo electrónico",
     "image": "Imagen",
@@ -51,10 +56,13 @@
     "name": "Nomber",
     "new_password": "Nueva contraseña",
     "password": "Contraseña",
+    "subtitle": "Subtítulo",
+    "title": "Título",
     "verify_password": "Verificar contraseña",
     "welcome_message": "Mensaje de bienvenida"
   },
   "placeholders": {
+    "category": "Seleccionar categorí",
     "description": "Ingresar descripción",
     "email": "Ingresar correo electrónico",
     "image": "Seleccionar imagen",
@@ -62,6 +70,8 @@
     "name": "Ingresar nombre",
     "new_password": "Ingresar nueva contraseña",
     "password": "Ingresar contraseña",
+    "subtitle": "Ingresar subtítulo",
+    "title": "Ingresar título",
     "verify_password": "Ingresar la nueva contraseña de nuevo",
     "welcome_message": "Ingresar mensaje de bienvenida"
   },
@@ -73,12 +83,16 @@
   },
   "toasts": {
     "Credentials were not found": "Las credenciales no fueron proporcionados",
+    "Error in request": "Error en la petición",
     "Painter general data not updated": "Datos generales del pintor no fueron actualizados",
     "Password updated, you can log with the new one": "La contraseña fue actualizada, ya puede loguearse con la nueva",
     "Passwords do not match": "Las contraseñas no coinciden",
+    "Study could not be updated or deleted": "Estudio no pudo ser actualizado o eliminado",
     "Token is no longer available": "El token ya no está habilitado",
     "User not found": "Usuario no encontrado",
-    "painter_general_data_updated": "Datos generales del pintor actualizados"
+    "painter_general_data_updated": "Datos generales del pintor actualizados",
+    "painter_study_deleted": "Estudio del pintor eliminado",
+    "painter_study_updated": "Estudio del pintor actualizado"
   },
   "tabs": {
     "general": "Actualizar datos generales",
