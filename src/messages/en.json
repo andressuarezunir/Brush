@@ -52,6 +52,7 @@
     "date_finish": "Finish date",
     "date_start": "Start date",
     "description": "Description",
+    "education": "Education",
     "email": "Email",
     "image": "Image",
     "last_name": "Last name",
@@ -61,7 +62,8 @@
     "subtitle": "Subtitle",
     "title": "Title",
     "verify_password": "Verify password",
-    "welcome_message": "Welcome message"
+    "welcome_message": "Welcome message",
+    "work_experience": "Work experience"
   },
   "placeholders": {
     "category": "Select category",
@@ -93,6 +95,7 @@
     "Token is no longer available": "Token is no longer available",
     "User not found": "User not found",
     "painter_general_data_updated": "Painter general data updated",
+    "painter_study_added": "Painter study added",
     "painter_study_deleted": "Painter study deleted",
     "painter_study_updated": "Painter study updated"
   },

@@ -4,14 +4,7 @@ import { NextResponse } from 'next/server';
 export async function GET(_: Request) {
   try {
     const studies = await prisma.studyCategory.findMany({
-      include: { study: true },
-      where: {
-        study: {
-          every: {
-            status: true
-          }
-        }
-      }
+      include: { study: { where: { status: true } } }
     });
     return NextResponse.json(studies);
   } catch (error) {

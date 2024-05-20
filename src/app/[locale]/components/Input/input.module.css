@@ -29,6 +29,3 @@
   padding-right: 1rem;
   font-family: inherit;
 }
-.input:disabled {
-  background-color: hsl(0, 0%, 97%) !important;
-}

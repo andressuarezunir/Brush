@@ -4,6 +4,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 //* App Custom
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
+import InputSelect from '../InputSelect/InputSelect';
 import InputTextArea from '../InputTextArea/InputTextArea';
 import styles from '../Modal/modal.module.css';
 
@@ -40,6 +41,10 @@ const ModalForm = ({
             } else if (['text', 'date'].includes(input.type)) {
               inputToBeRendered = (
                 <Input key={input.name} {...input} control={control} />
+              );
+            } else if (input.type === 'select') {
+              inputToBeRendered = (
+                <InputSelect key={input.name} {...input} control={control} />
               );
             }
             return inputToBeRendered;

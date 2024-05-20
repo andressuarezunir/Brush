@@ -52,6 +52,7 @@
     "date_finish": "Fecha de fin",
     "date_start": "Fecha de inicio",
     "description": "Descripción",
+    "education": "Educación",
     "email": "Correo electrónico",
     "image": "Imagen",
     "last_name": "Apellido",
@@ -61,10 +62,11 @@
     "subtitle": "Subtítulo",
     "title": "Título",
     "verify_password": "Verificar contraseña",
-    "welcome_message": "Mensaje de bienvenida"
+    "welcome_message": "Mensaje de bienvenida",
+    "work_experience": "Experiencia laboral"
   },
   "placeholders": {
-    "category": "Seleccionar categorí",
+    "category": "Seleccionar categoría",
     "description": "Ingresar descripción",
     "email": "Ingresar correo electrónico",
     "image": "Seleccionar imagen",
@@ -93,6 +95,7 @@
     "Token is no longer available": "El token ya no está habilitado",
     "User not found": "Usuario no encontrado",
     "painter_general_data_updated": "Datos generales del pintor actualizados",
+    "painter_study_added": "Estudio del pintor agregado",
     "painter_study_deleted": "Estudio del pintor eliminado",
     "painter_study_updated": "Estudio del pintor actualizado"
   },

@@ -1,0 +1,10 @@
+.input_select_container {
+  height: 40px;
+  border: 1px solid hsl(0, 0%, 80%);
+  outline: none;
+  background-color: hsl(0, 0%, 100%) !important;
+  border-radius: 0.2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: inherit;
+}

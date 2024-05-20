@@ -29,14 +29,7 @@ export default async function PainterPage() {
   };
   const studies =
     (await prisma.studyCategory.findMany({
-      include: { study: true },
-      where: {
-        study: {
-          every: {
-            status: true
-          }
-        }
-      }
+      include: { study: { where: { status: true } } }
     })) || [];
 
   return (

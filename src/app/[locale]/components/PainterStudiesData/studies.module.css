@@ -1,10 +1,20 @@
 .patient_studies {
-  height: 77vh;
+  height: 58vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .patient_studies {
+    height: 65vh;
+  }
+}
+@media (min-width: 1024px) {
+  .patient_studies {
+    height: 72vh;
+  }
 }
 .patient_study {
   background-color: hsl(0, 0%, 98%);

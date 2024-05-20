@@ -8,9 +8,10 @@ import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
+import InputSelect from '../InputSelect/InputSelect';
 import InputTextArea from '../InputTextArea/InputTextArea';
 import ModalForm from '../ModalForm/ModalForm';
-import { deleteStudy, updateStudy } from './requests';
+import { addStudy, deleteStudy, updateStudy } from './requests';
 import styles from './studies.module.css';
 
 interface StudiesProps {
@@ -42,6 +43,11 @@ const PainterStudiesData = ({ studies }: Props) => {
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
   const studiesArray = studies.map((category) => category.study).flat();
 
+  const studyTypes = [
+    { text: 'labels.education', value: 1 },
+    { text: 'labels.work_experience', value: 2 }
+  ];
+
   const onUpdateStudy = async ({
     pk,
     data
@@ -51,6 +57,7 @@ const PainterStudiesData = ({ studies }: Props) => {
   }) => {
     data = {
       ...data,
+      category_id: Number(data.category_id),
       date_start: new Date(data.date_start).toISOString(),
       date_finish: new Date(data.date_finish).toISOString()
     };
@@ -70,6 +77,26 @@ const PainterStudiesData = ({ studies }: Props) => {
     if (study?.error_message) {
       toast(t(`toasts.${study?.error_message}`), { type: 'error' });
     } else toast(t(`toasts.painter_study_deleted`), { type: 'success' });
+    router.refresh();
+  };
+
+  const onAddStudy = async (data: FieldValues) => {
+    data = {
+      ...data,
+      category_id: Number(data.category_id),
+      date_start: new Date(data.date_start).toISOString(),
+      date_finish: new Date(data.date_finish).toISOString(),
+      status: true
+    };
+    setDoingRequest(true);
+    const study = await addStudy(data);
+    setDoingRequest(false);
+    if (study?.error_message) {
+      toast(t(`toasts.${study?.error_message}`), { type: 'error' });
+    } else {
+      toast(t(`toasts.painter_study_added`), { type: 'success' });
+      setShowAddStudyModal(false);
+    }
     router.refresh();
   };
 
@@ -101,10 +128,11 @@ const PainterStudiesData = ({ studies }: Props) => {
       }
     },
     {
-      type: 'text',
+      type: 'select',
       name: 'category_id',
       label: 'labels.category',
       placeholder: 'placeholders.category',
+      options: studyTypes,
       defaultValue: study?.category_id,
       rules: {
         required: {
@@ -158,9 +186,7 @@ const PainterStudiesData = ({ studies }: Props) => {
         <ModalForm
           title="buttons.add_study"
           inputs={inputs}
-          onSubmit={(data: FieldValues) => {
-            console.log(data);
-          }}
+          onSubmit={onAddStudy}
           onHide={() => setShowAddStudyModal(false)}
         />
       )}
@@ -190,6 +216,14 @@ const PainterStudiesData = ({ studies }: Props) => {
                 } else if (['text', 'date'].includes(input.type)) {
                   inputToBeRendered = (
                     <Input key={input.name} {...input} control={control} />
+                  );
+                } else if (input.type === 'select') {
+                  inputToBeRendered = (
+                    <InputSelect
+                      key={input.name}
+                      {...input}
+                      control={control}
+                    />
                   );
                 }
                 return inputToBeRendered;

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Control, Controller } from 'react-hook-form';
 //* App Custom
+import { InputSelectOptions } from '../InputSelect/InputSelect';
 import styles from './input.module.css';
 
 interface InputRequiredRule {
@@ -20,10 +21,11 @@ interface InputRuleOptions {
 }
 
 export interface InputProps {
-  type: 'text' | 'password' | 'textarea' | 'dropzone' | 'date';
+  type: 'text' | 'password' | 'textarea' | 'dropzone' | 'date' | 'select';
   name: string;
   label: string;
   placeholder?: string;
+  options?: InputSelectOptions[];
   defaultValue?: string | number;
   rules?: InputRuleOptions;
   control?: Control;
