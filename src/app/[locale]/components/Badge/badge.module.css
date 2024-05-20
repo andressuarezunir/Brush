@@ -1,0 +1,12 @@
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.badge_success {
+  background-color: hsl(93, 59%, 45%);
+}
+.badge_fail {
+  background-color: hsl(7, 79%, 46%);
+  color: hsl(0, 0%, 100%);
+}

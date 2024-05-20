@@ -2,8 +2,10 @@
 import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 //* App Custom
+import AddRegistry from '@/app/[locale]/components/AddRegistry/AddRegistry';
 import Table from '@/app/[locale]/components/Table/Table';
 import prisma from '@/lib/prisma';
+import styles from '../layout.module.css';
 
 export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
@@ -23,8 +25,11 @@ export default async function PaintsPage() {
 
   return (
     <div>
-      <h1>{t('sections.paints')}</h1>
-      <Table data={paints} module="paints" />
+      <div className={styles.dashboard_header}>
+        <h1>{t('sections.paints')}</h1>
+        <AddRegistry name="paint" />
+      </div>
+      <Table key={paints.length} data={paints} module="paint" />
     </div>
   );
 }

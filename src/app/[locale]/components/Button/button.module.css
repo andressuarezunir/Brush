@@ -1,9 +1,11 @@
 .btn {
   font-weight: 700;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.7rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
 }
 .btn_primary {
   border: 1px solid hsl(226, 13%, 19%);

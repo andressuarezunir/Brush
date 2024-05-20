@@ -4,6 +4,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 //* App Custom
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
+import InputDropzone from '../InputDropzone/InputDropzone';
 import InputSelect from '../InputSelect/InputSelect';
 import InputTextArea from '../InputTextArea/InputTextArea';
 import styles from '../Modal/modal.module.css';
@@ -38,13 +39,17 @@ const ModalForm = ({
               inputToBeRendered = (
                 <InputTextArea key={input.name} {...input} control={control} />
               );
-            } else if (['text', 'date'].includes(input.type)) {
+            } else if (['text', 'number', 'date'].includes(input.type)) {
               inputToBeRendered = (
                 <Input key={input.name} {...input} control={control} />
               );
             } else if (input.type === 'select') {
               inputToBeRendered = (
                 <InputSelect key={input.name} {...input} control={control} />
+              );
+            } else if (input.type === 'dropzone') {
+              inputToBeRendered = (
+                <InputDropzone key={input.name} {...input} control={control} />
               );
             }
             return inputToBeRendered;
@@ -53,7 +58,7 @@ const ModalForm = ({
             <Button variant="secondary" text="buttons.close" onClick={onHide} />
             <Button
               type="submit"
-              text="buttons.add_study"
+              text={'buttons.submit'}
               disabled={!formState.isValid}
               title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
             />

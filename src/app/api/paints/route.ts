@@ -9,23 +9,27 @@ export async function GET(request: Request) {
   const title = searchParams.get('title') ?? '';
   const width = Number(searchParams.get('width') ?? '');
   const height = Number(searchParams.get('height') ?? '');
+  const all = searchParams.get('height') ?? true;
 
   let params = {};
   if (width) params = { ...params, width };
   if (height) params = { ...params, height };
+  if (!all) params = { ...params, status: true };
 
   try {
     const paints = await prisma.paint.findMany({
       where: {
         title: { contains: title, mode: 'insensitive' },
-        status: true,
         ...params
       },
       include: { categories: { select: { category: true } } }
     });
     return NextResponse.json(paints);
   } catch (error) {
-    return NextResponse.json({ message: 'Error in request' }, { status: 500 });
+    return NextResponse.json(
+      { error_message: 'Error in request' },
+      { status: 500 }
+    );
   }
 }
 

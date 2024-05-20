@@ -2,14 +2,17 @@
 //* External
 import moment from 'moment-timezone';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { FieldValues, useForm } from 'react-hook-form';
 import { FaPencilAlt } from 'react-icons/fa';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 //* App Custom
 import { cleanObject } from '@/app/helpers/cleanObject';
+import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
+import { filterPaints } from './requests';
 import styles from './table.module.css';
 
 interface Column<T> {
@@ -19,15 +22,17 @@ interface Column<T> {
 
 export interface TableProps<T> {
   data: T[];
-  module: string;
+  module: 'paint' | 'experience';
 }
 
 const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const t = useTranslations();
   const { control, handleSubmit } = useForm({ mode: 'all' });
+  const [dataToShow, setDataToShow] = useState(data);
 
   const paintColumns: Column<T>[] = [
     {
+      name: t('labels.actions'),
       cell: (paint) => (
         <Button
           variant="secondary"
@@ -56,16 +61,19 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
     },
     {
       name: t('labels.status'),
-      cell: ({ status }) => t(status === true ? 'visible' : 'hidden')
+      cell: ({ status }) => (
+        <Badge value={status === true ? 'visible' : 'hidden'} />
+      )
     }
   ];
 
   const columnsToDisplay = {
-    paints: paintColumns
+    paint: paintColumns,
+    experience: []
   }[module]!;
 
   const filtersToDisplay = {
-    paints: [
+    paint: [
       {
         type: 'text',
         name: 'title',
@@ -81,12 +89,14 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
         name: 'width',
         placeholder: 'placeholders.width'
       }
-    ]
+    ],
+    experience: []
   }[module]! as InputProps[];
 
-  const onSubmit = (data: FieldValues) => {
+  const onSubmit = async (data: FieldValues) => {
     const cleanData = cleanObject(data);
-    console.log(cleanData);
+    const paints = await filterPaints(cleanData);
+    setDataToShow(paints);
   };
 
   return (
@@ -111,7 +121,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
       </form>
       <DataTable
         columns={columnsToDisplay}
-        data={data}
+        data={dataToShow}
         responsive
         striped
         noDataComponent={<p>{t('datatable_with_no_data')}</p>}

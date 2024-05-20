@@ -5,6 +5,7 @@ import Image from 'next/image';
 //* App Custom
 import PainterTabs from '@/app/[locale]/components/PainterTabs/PainterTabs';
 import prisma from '@/lib/prisma';
+import layoutStyles from '../layout.module.css';
 import styles from './painter.module.css';
 
 export async function generateMetadata() {
@@ -34,7 +35,9 @@ export default async function PainterPage() {
 
   return (
     <div>
-      <h1>{t('sections.painter')}</h1>
+      <div className={layoutStyles.dashboard_header}>
+        <h1>{t('sections.painter')}</h1>
+      </div>
       <div className={styles.painter_divider}>
         <div className={styles.painter_card}>
           <Image

@@ -1,3 +1,4 @@
+'use client';
 //* External
 import { useTranslations } from 'next-intl';
 //* App Custom
@@ -30,13 +31,13 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      title={t(title)}
+      title={title && t(title)}
       className={`${styles.btn} ${
         variant === 'primary' ? styles.btn_primary : styles.btn_secondary
       } ${iconOnly ? styles.btn_icon_only : ''}`}
     >
-      {icon && icon}
       {text && t(text)}
+      {icon && icon}
     </button>
   );
 };

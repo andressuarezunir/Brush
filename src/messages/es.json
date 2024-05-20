@@ -39,6 +39,8 @@
     "login": "Volver a la página de logueo"
   },
   "buttons": {
+    "add_experience": "Agregar experiencia",
+    "add_paint": "Agregar pintura",
     "add_study": "Agregar estudio",
     "close": "Cerrar",
     "delete_study": "Eliminar estudio",
@@ -48,7 +50,10 @@
     "update_study": "Actualizar estudio"
   },
   "labels": {
+    "abstract": "Abstracto",
+    "actions": "Acciones",
     "category": "Categoría",
+    "creativity": "Creatividad",
     "date_finish": "Fecha de fin",
     "date_start": "Fecha de inicio",
     "description": "Descripción",
@@ -59,6 +64,7 @@
     "last_name": "Apellido",
     "name": "Nombre",
     "new_password": "Nueva contraseña",
+    "oil_painting": "Oleo",
     "password": "Contraseña",
     "status": "Estado",
     "subtitle": "Subtítulo",
@@ -101,6 +107,7 @@
     "Study could not be updated or deleted": "Estudio no pudo ser actualizado o eliminado",
     "Token is no longer available": "El token ya no está habilitado",
     "User not found": "Usuario no encontrado",
+    "paint_added": "Pintura agregada",
     "painter_general_data_updated": "Datos generales del pintor actualizados",
     "painter_study_added": "Estudio del pintor agregado",
     "painter_study_deleted": "Estudio del pintor eliminado",

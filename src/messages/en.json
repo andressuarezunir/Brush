@@ -39,6 +39,8 @@
     "login": "Return to login"
   },
   "buttons": {
+    "add_experience": "Add experience",
+    "add_paint": "Add paint",
     "add_study": "Add study",
     "close": "Close",
     "delete_study": "Delete study",
@@ -48,7 +50,10 @@
     "update_study": "Update study"
   },
   "labels": {
+    "abstract": "Abstract",
+    "actions": "Actions",
     "category": "Category",
+    "creativity": "Creativity",
     "date_finish": "Finish date",
     "date_start": "Start date",
     "description": "Description",
@@ -59,6 +64,7 @@
     "last_name": "Last name",
     "name": "Name",
     "new_password": "New password",
+    "oil_painting": "Oil painting",
     "password": "Password",
     "status": "Status",
     "subtitle": "Subtitle",
@@ -101,6 +107,7 @@
     "Study could not be updated or deleted": "Study could not be updated or deleted",
     "Token is no longer available": "Token is no longer available",
     "User not found": "User not found",
+    "paint_added": "Paint added",
     "painter_general_data_updated": "Painter general data updated",
     "painter_study_added": "Painter study added",
     "painter_study_deleted": "Painter study deleted",
