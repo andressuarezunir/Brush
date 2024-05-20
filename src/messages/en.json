@@ -102,5 +102,9 @@
   "tabs": {
     "general": "Update general data",
     "studies": "Update studies data"
+  },
+  "confirmation": {
+    "delete_study_title": "Do you want to delete the study?",
+    "delete_study_desc": "If the process is done you will not be able to recover the study"
   }
 }

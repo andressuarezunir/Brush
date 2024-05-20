@@ -102,5 +102,9 @@
   "tabs": {
     "general": "Actualizar datos generales",
     "studies": "Actualizar datos de estudios"
+  },
+  "confirmation": {
+    "delete_study_title": "¿Desea eliminar el estudio?",
+    "delete_study_desc": "Si el proceso es realizado no podrá recuperar el estudio"
   }
 }

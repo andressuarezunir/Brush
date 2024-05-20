@@ -14,10 +14,11 @@
   -moz-box-shadow: 4px 6px 17px -5px hsla(0, 0%, 0%, 0.75);
 }
 .modal_title {
-  color: hsl(14, 100%, 65%);
+  color: hsl(230, 47%, 27%);
   font-weight: 700;
   text-align: center;
-  font-size: 20px;
+  font-size: 30px;
+  margin-bottom: 0.5rem !important;
 }
 .modal_close {
   position: absolute;
@@ -25,6 +26,14 @@
   right: 20px;
   font-size: 20px;
   cursor: pointer;
+}
+.modal_body {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .modalForm_btns {
   display: flex;

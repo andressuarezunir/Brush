@@ -10,6 +10,8 @@ import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
 import InputSelect from '../InputSelect/InputSelect';
 import InputTextArea from '../InputTextArea/InputTextArea';
+import Modal from '../Modal/Modal';
+import modalStyles from '../Modal/modal.module.css';
 import ModalForm from '../ModalForm/ModalForm';
 import { addStudy, deleteStudy, updateStudy } from './requests';
 import styles from './studies.module.css';
@@ -35,11 +37,21 @@ interface Props {
   studies: PainterStudiesProps[];
 }
 
+interface ConfirmationModalProps {
+  show: boolean;
+  study: number | null;
+}
+
 const PainterStudiesData = ({ studies }: Props) => {
   const router = useRouter();
   const t = useTranslations();
   const [doingRequest, setDoingRequest] = useState(false);
   const [showAddStudyModal, setShowAddStudyModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] =
+    useState<ConfirmationModalProps>({
+      show: false,
+      study: null
+    });
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
   const studiesArray = studies.map((category) => category.study).flat();
 
@@ -76,7 +88,10 @@ const PainterStudiesData = ({ studies }: Props) => {
     setDoingRequest(false);
     if (study?.error_message) {
       toast(t(`toasts.${study?.error_message}`), { type: 'error' });
-    } else toast(t(`toasts.painter_study_deleted`), { type: 'success' });
+    } else {
+      toast(t(`toasts.painter_study_deleted`), { type: 'success' });
+      setShowConfirmationModal({ show: false, study: null });
+    }
     router.refresh();
   };
 
@@ -190,6 +205,30 @@ const PainterStudiesData = ({ studies }: Props) => {
           onHide={() => setShowAddStudyModal(false)}
         />
       )}
+      {showConfirmationModal.show && (
+        <Modal
+          title="confirmation.delete_study_title"
+          description="confirmation.delete_study_desc"
+          body={
+            <div className={modalStyles.modalForm_btns}>
+              <Button
+                variant="secondary"
+                text="buttons.close"
+                onClick={() =>
+                  setShowConfirmationModal({ show: false, study: null })
+                }
+                disabled={!formState.isValid || doingRequest}
+              />
+              <Button
+                text="buttons.delete_study"
+                disabled={doingRequest}
+                onClick={() => onDeleteStudy(showConfirmationModal.study!)}
+              />
+            </div>
+          }
+          onHide={() => setShowConfirmationModal({ show: false, study: null })}
+        />
+      )}
       <Button
         variant="secondary"
         text="buttons.add_study"
@@ -238,7 +277,9 @@ const PainterStudiesData = ({ studies }: Props) => {
                   text="buttons.delete_study"
                   variant="secondary"
                   disabled={doingRequest}
-                  onClick={() => onDeleteStudy(study.id)}
+                  onClick={() =>
+                    setShowConfirmationModal({ show: true, study: study.id })
+                  }
                 />
               </div>
             </form>
