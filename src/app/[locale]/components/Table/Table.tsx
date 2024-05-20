@@ -1,8 +1,9 @@
 'use client';
 //* External
 import moment from 'moment-timezone';
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
+import { useState, useTransition } from 'react';
 import DataTable from 'react-data-table-component';
 import { FieldValues, useForm } from 'react-hook-form';
 import { FaPencilAlt } from 'react-icons/fa';
@@ -27,19 +28,30 @@ export interface TableProps<T> {
 
 const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const t = useTranslations();
+  const router = useRouter();
+  const localActive = useLocale();
+  const [isPending, setTransition] = useTransition();
   const { control, handleSubmit } = useForm({ mode: 'all' });
   const [dataToShow, setDataToShow] = useState(data);
 
   const paintColumns: Column<T>[] = [
     {
       name: t('labels.actions'),
-      cell: (paint) => (
+      cell: ({ id, title }) => (
         <Button
           variant="secondary"
           title="titles.update_paint"
           iconOnly
+          disabled={isPending}
           icon={<FaPencilAlt />}
-          onClick={() => {}}
+          onClick={() => {
+            const titleUnderlined = title.replace(' ', '_').toLowerCase();
+            setTransition(() => {
+              router.replace(
+                `/${localActive}/admin/dashboard/paint/${id}_${titleUnderlined}`
+              );
+            });
+          }}
         />
       )
     },
@@ -70,13 +82,21 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const experienceColumns: Column<T>[] = [
     {
       name: t('labels.actions'),
-      cell: (experience) => (
+      cell: ({ id, title }) => (
         <Button
           variant="secondary"
           title="titles.update_experience"
           iconOnly
+          disabled={isPending}
           icon={<FaPencilAlt />}
-          onClick={() => {}}
+          onClick={() => {
+            const titleUnderlined = title.replace(' ', '_').toLowerCase();
+            setTransition(() => {
+              router.replace(
+                `/${localActive}/admin/dashboard/experience/${id}_${titleUnderlined}`
+              );
+            });
+          }}
         />
       )
     },

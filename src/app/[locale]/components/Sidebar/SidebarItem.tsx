@@ -44,7 +44,7 @@ const SidebarItems = ({ icons }: IconsProps) => {
       {sidebarItems.map((item) => (
         <Link
           key={item.name}
-          href={item.href}
+          href={`/${localActive}/admin/dashboard/${item.href}`}
           className={`${styles.sidebarLink} ${
             pathName === `/${localActive}/admin/dashboard/${item.href}`
               ? styles.sidebarLinkActive
