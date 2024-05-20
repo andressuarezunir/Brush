@@ -37,6 +37,7 @@ const InputSelect = ({
             )}
           </label>
           <select
+            id={name}
             onChange={onChange}
             className={selectStyles.input_select_container}
             defaultValue={defaultValue || ''}
