@@ -32,7 +32,7 @@ const PainterTabs = ({ painter, studies }: PainterTabs) => {
             }`}
             onClick={() => setTabSelected(tab)}
           >
-            <p>{t(`tabs.${tab}`)}</p>
+            {t(`tabs.${tab}`)}
           </div>
         ))}
       </div>

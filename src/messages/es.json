@@ -39,6 +39,8 @@
     "login": "Volver a la página de logueo"
   },
   "buttons": {
+    "add_study": "Agregar estudio",
+    "close": "Cerrar",
     "delete_study": "Eliminar estudio",
     "forgot_pw": "Olvide mi contraseña",
     "logout": "Cerrar sesión",

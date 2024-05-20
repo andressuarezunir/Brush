@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
 import InputTextArea from '../InputTextArea/InputTextArea';
+import ModalForm from '../ModalForm/ModalForm';
 import { deleteStudy, updateStudy } from './requests';
 import styles from './studies.module.css';
 
@@ -37,6 +38,7 @@ const PainterStudiesData = ({ studies }: Props) => {
   const router = useRouter();
   const t = useTranslations();
   const [doingRequest, setDoingRequest] = useState(false);
+  const [showAddStudyModal, setShowAddStudyModal] = useState(false);
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
   const studiesArray = studies.map((category) => category.study).flat();
 
@@ -71,13 +73,13 @@ const PainterStudiesData = ({ studies }: Props) => {
     router.refresh();
   };
 
-  const inputs = (study: StudiesProps): InputProps[] => [
+  const inputs = (study?: StudiesProps): InputProps[] => [
     {
       type: 'text',
       name: 'title',
       label: 'labels.title',
       placeholder: 'placeholders.title',
-      defaultValue: study.title,
+      defaultValue: study?.title,
       rules: {
         required: {
           value: true,
@@ -90,7 +92,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       name: 'subtitle',
       label: 'labels.subtitle',
       placeholder: 'placeholders.subtitle',
-      defaultValue: study.subtitle,
+      defaultValue: study?.subtitle,
       rules: {
         required: {
           value: true,
@@ -103,7 +105,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       name: 'category_id',
       label: 'labels.category',
       placeholder: 'placeholders.category',
-      defaultValue: study.category_id,
+      defaultValue: study?.category_id,
       rules: {
         required: {
           value: true,
@@ -116,7 +118,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       name: 'description',
       label: 'labels.description',
       placeholder: 'placeholders.description',
-      defaultValue: study.description,
+      defaultValue: study?.description,
       rules: {
         required: {
           value: true,
@@ -128,7 +130,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       type: 'date',
       name: 'date_start',
       label: 'labels.date_start',
-      defaultValue: moment(study.date_start).format('YYYY-MM-DD'),
+      defaultValue: study && moment(study?.date_start).format('YYYY-MM-DD'),
       rules: {
         required: {
           value: true,
@@ -140,7 +142,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       type: 'date',
       name: 'date_finish',
       label: 'labels.date_finish',
-      defaultValue: moment(study.date_finish).format('YYYY-MM-DD'),
+      defaultValue: study && moment(study?.date_finish).format('YYYY-MM-DD'),
       rules: {
         required: {
           value: true,
@@ -151,48 +153,65 @@ const PainterStudiesData = ({ studies }: Props) => {
   ];
 
   return (
-    <div className={styles.patient_studies}>
-      {studiesArray.map((study) => (
-        <div key={study.id} className={styles.patient_study}>
-          <form
-            onSubmit={handleSubmit((data) =>
-              onUpdateStudy({ pk: study.id, data })
-            )}
-          >
-            {inputs(study).map((input) => {
-              let inputToBeRendered;
-              if (input.type === 'textarea') {
-                inputToBeRendered = (
-                  <InputTextArea
-                    key={input.name}
-                    {...input}
-                    control={control}
-                  />
-                );
-              } else if (['text', 'date'].includes(input.type)) {
-                inputToBeRendered = (
-                  <Input key={input.name} {...input} control={control} />
-                );
-              }
-              return inputToBeRendered;
-            })}
-            <div className={styles.patient_study_buttons}>
-              <Button
-                type="submit"
-                text="buttons.update_study"
-                disabled={!formState.isValid || doingRequest}
-              />
-              <Button
-                text="buttons.delete_study"
-                variant="secondary"
-                disabled={doingRequest}
-                onClick={() => onDeleteStudy(study.id)}
-              />
-            </div>
-          </form>
-        </div>
-      ))}
-    </div>
+    <>
+      {showAddStudyModal && (
+        <ModalForm
+          title="buttons.add_study"
+          inputs={inputs}
+          onSubmit={(data: FieldValues) => {
+            console.log(data);
+          }}
+          onHide={() => setShowAddStudyModal(false)}
+        />
+      )}
+      <Button
+        variant="secondary"
+        text="buttons.add_study"
+        onClick={() => setShowAddStudyModal(true)}
+      />
+      <div className={styles.patient_studies}>
+        {studiesArray.map((study) => (
+          <div key={study.id} className={styles.patient_study}>
+            <form
+              onSubmit={handleSubmit((data) =>
+                onUpdateStudy({ pk: study.id, data })
+              )}
+            >
+              {inputs(study).map((input) => {
+                let inputToBeRendered;
+                if (input.type === 'textarea') {
+                  inputToBeRendered = (
+                    <InputTextArea
+                      key={input.name}
+                      {...input}
+                      control={control}
+                    />
+                  );
+                } else if (['text', 'date'].includes(input.type)) {
+                  inputToBeRendered = (
+                    <Input key={input.name} {...input} control={control} />
+                  );
+                }
+                return inputToBeRendered;
+              })}
+              <div className={styles.patient_study_buttons}>
+                <Button
+                  type="submit"
+                  text="buttons.update_study"
+                  disabled={!formState.isValid || doingRequest}
+                />
+                <Button
+                  text="buttons.delete_study"
+                  variant="secondary"
+                  disabled={doingRequest}
+                  onClick={() => onDeleteStudy(study.id)}
+                />
+              </div>
+            </form>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

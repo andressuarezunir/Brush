@@ -15,11 +15,15 @@
 .painter_tab {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 100%;
   border-bottom: 1px solid hsl(230, 6%, 58%);
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-size: 18px;
+  padding: 0.8rem 0;
 }
 .painter_tab:hover {
   background-color: hsl(0, 0%, 90%);

@@ -20,16 +20,14 @@
 .dashboard_inner_page h1 {
   color: hsl(230, 47%, 27%);
   font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 .dashboard_footer_container {
   position: absolute;
   bottom: 15px;
   display: flex;
   gap: 0.5rem;
-}
-.dashboard_footer_container p {
-  margin: 0;
-  padding: 0;
 }
 .dashboard_footer_bold {
   font-weight: 700;

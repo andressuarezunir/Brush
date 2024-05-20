@@ -8,6 +8,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   text: string;
   disabled?: boolean;
+  title?: string;
   onClick?: () => void;
 }
 
@@ -16,6 +17,7 @@ const Button = ({
   variant = 'primary',
   text = '',
   disabled = false,
+  title,
   onClick
 }: ButtonProps) => {
   const t = useTranslations();
@@ -24,6 +26,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
+      title={title}
       className={`${styles.btn} ${
         variant === 'primary' ? styles.btn_primary : styles.btn_secondary
       }`}

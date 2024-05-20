@@ -39,6 +39,8 @@
     "login": "Return to login"
   },
   "buttons": {
+    "add_study": "Add study",
+    "close": "Close",
     "delete_study": "Delete study",
     "forgot_pw": "Forgot my password",
     "logout": "Logout",
