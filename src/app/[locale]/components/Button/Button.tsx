@@ -6,18 +6,22 @@ import styles from './button.module.css';
 interface ButtonProps {
   type?: 'button' | 'submit';
   variant?: 'primary' | 'secondary';
-  text: string;
+  iconOnly?: boolean;
+  text?: string;
   disabled?: boolean;
   title?: string;
+  icon?: React.ReactNode;
   onClick?: () => void;
 }
 
 const Button = ({
   type = 'button',
   variant = 'primary',
+  iconOnly = false,
   text = '',
   disabled = false,
-  title,
+  title = '',
+  icon,
   onClick
 }: ButtonProps) => {
   const t = useTranslations();
@@ -26,12 +30,13 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      title={title}
+      title={t(title)}
       className={`${styles.btn} ${
         variant === 'primary' ? styles.btn_primary : styles.btn_secondary
-      }`}
+      } ${iconOnly ? styles.btn_icon_only : ''}`}
     >
-      {t(text)}
+      {icon && icon}
+      {text && t(text)}
     </button>
   );
 };

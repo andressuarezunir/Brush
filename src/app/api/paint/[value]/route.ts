@@ -2,7 +2,7 @@
 import { Segment } from 'next/dist/server/app-render/types';
 import { NextResponse } from 'next/server';
 //* App Custom
-import { uploadImage } from '@/app/helpers';
+import { uploadImage } from '@/app/helpers/uploadImage';
 import prisma from '@/lib/prisma';
 
 export async function GET(_: Request, { params }: Segment) {

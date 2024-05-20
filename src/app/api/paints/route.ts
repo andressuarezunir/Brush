@@ -1,7 +1,7 @@
 //* External
 import { NextResponse } from 'next/server';
 //* App Custom
-import { uploadImage } from '@/app/helpers';
+import { uploadImage } from '@/app/helpers/uploadImage';
 import prisma from '@/lib/prisma';
 
 export async function GET(request: Request) {
@@ -21,13 +21,7 @@ export async function GET(request: Request) {
         status: true,
         ...params
       },
-      include: {
-        categories: {
-          select: {
-            category: true
-          }
-        }
-      }
+      include: { categories: { select: { category: true } } }
     });
     return NextResponse.json(paints);
   } catch (error) {

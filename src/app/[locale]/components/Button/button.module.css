@@ -4,7 +4,6 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  margin-top: 0.5rem;
 }
 .btn_primary {
   border: 1px solid hsl(226, 13%, 19%);
@@ -31,4 +30,8 @@
   background-color: hsl(0, 0%, 95%);
   color: hsl(226, 9%, 48%);
   cursor: default;
+}
+.btn_icon_only {
+  padding: 0.6rem 1rem !important;
+  border-radius: 0.5rem;
 }

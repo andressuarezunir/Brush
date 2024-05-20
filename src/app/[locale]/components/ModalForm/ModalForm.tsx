@@ -50,15 +50,13 @@ const ModalForm = ({
             return inputToBeRendered;
           })}
           <div className={styles.modalForm_btns}>
+            <Button variant="secondary" text="buttons.close" onClick={onHide} />
             <Button
               type="submit"
               text="buttons.add_study"
               disabled={!formState.isValid}
-              title={
-                !formState.isValid ? t('titles.missing_inputs_required') : ''
-              }
+              title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
             />
-            <Button variant="secondary" text="buttons.close" onClick={onHide} />
           </div>
         </form>
       </div>

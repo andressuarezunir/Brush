@@ -135,6 +135,7 @@ const PainterGeneralData = ({ painter }: Props) => {
         type="submit"
         text="buttons.submit"
         disabled={!formState.isValid || doingRequest}
+        title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
       />
     </form>
   );

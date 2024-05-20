@@ -54,21 +54,25 @@
     "description": "Descripción",
     "education": "Educación",
     "email": "Correo electrónico",
+    "height": "Altura",
     "image": "Imagen",
     "last_name": "Apellido",
     "name": "Nombre",
     "new_password": "Nueva contraseña",
     "password": "Contraseña",
+    "status": "Estado",
     "subtitle": "Subtítulo",
     "title": "Título",
     "verify_password": "Verificar contraseña",
     "welcome_message": "Mensaje de bienvenida",
+    "width": "Ancho",
     "work_experience": "Experiencia laboral"
   },
   "placeholders": {
     "category": "Seleccionar categoría",
     "description": "Ingresar descripción",
     "email": "Ingresar correo electrónico",
+    "height": "Ingresar altura",
     "image": "Seleccionar imagen",
     "last_name": "Ingresar apellido",
     "name": "Ingresar nombre",
@@ -77,12 +81,15 @@
     "subtitle": "Ingresar subtítulo",
     "title": "Ingresar título",
     "verify_password": "Ingresar la nueva contraseña de nuevo",
-    "welcome_message": "Ingresar mensaje de bienvenida"
+    "welcome_message": "Ingresar mensaje de bienvenida",
+    "width": "Ingresar ancho"
   },
   "form_errors": {
     "input_required": "Este campo es requerido"
   },
   "titles": {
+    "filter": "Filtrar",
+    "update_paint": "Actualizar pintura",
     "missing_inputs_required": "Hay campos requeridos que no se han completado"
   },
   "toasts": {
@@ -106,5 +113,8 @@
   "confirmation": {
     "delete_study_title": "¿Desea eliminar el estudio?",
     "delete_study_desc": "Si el proceso es realizado no podrá recuperar el estudio"
-  }
+  },
+  "datatable_with_no_data": "Tabla sin datos",
+  "visible": "Visible",
+  "hidden": "Oculto"
 }

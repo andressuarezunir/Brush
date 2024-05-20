@@ -21,9 +21,16 @@ interface InputRuleOptions {
 }
 
 export interface InputProps {
-  type: 'text' | 'password' | 'textarea' | 'dropzone' | 'date' | 'select';
+  type:
+    | 'text'
+    | 'number'
+    | 'password'
+    | 'textarea'
+    | 'dropzone'
+    | 'date'
+    | 'select';
   name: string;
-  label: string;
+  label?: string;
   placeholder?: string;
   options?: InputSelectOptions[];
   defaultValue?: string | number;

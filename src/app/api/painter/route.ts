@@ -1,6 +1,8 @@
-import { uploadImage } from '@/app/helpers';
-import prisma from '@/lib/prisma';
+//* External
 import { NextResponse } from 'next/server';
+//* App Custom
+import { uploadImage } from '@/app/helpers/uploadImage';
+import prisma from '@/lib/prisma';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
