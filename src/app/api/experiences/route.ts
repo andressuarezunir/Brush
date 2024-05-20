@@ -8,8 +8,10 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title = searchParams.get('title') ?? '';
   const date_updated = searchParams.get('date_updated') ?? '';
+  const all = searchParams.get('all') ?? true;
 
   let params = {};
+  if (!all) params = { ...params, status: true };
   if (date_updated) {
     const dateFormatted = new Date(date_updated);
     const nextDateFormatted = new Date(
@@ -28,20 +30,16 @@ export async function GET(request: Request) {
     const experiences = await prisma.experience.findMany({
       where: {
         title: { contains: title, mode: 'insensitive' },
-        status: true,
         ...params
       },
-      include: {
-        categories: {
-          select: {
-            category: true
-          }
-        }
-      }
+      include: { categories: { select: { category: true } } }
     });
     return NextResponse.json(experiences);
   } catch (error) {
-    return NextResponse.json({ message: 'Error in request' }, { status: 500 });
+    return NextResponse.json(
+      { error_message: 'Error in request' },
+      { status: 500 }
+    );
   }
 }
 

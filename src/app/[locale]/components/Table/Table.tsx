@@ -12,7 +12,7 @@ import { cleanObject } from '@/app/helpers/cleanObject';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import Input, { InputProps } from '../Input/Input';
-import { filterPaints } from './requests';
+import { filterExperiences, filterPaints } from './requests';
 import styles from './table.module.css';
 
 interface Column<T> {
@@ -29,7 +29,6 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const t = useTranslations();
   const { control, handleSubmit } = useForm({ mode: 'all' });
   const [dataToShow, setDataToShow] = useState(data);
-  console.log({ dataToShow });
 
   const paintColumns: Column<T>[] = [
     {
@@ -136,8 +135,11 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
 
   const onSubmit = async (data: FieldValues) => {
     const cleanData = cleanObject(data);
-    const paints = await filterPaints(cleanData);
-    setDataToShow(paints);
+    let newData = [];
+    if (module === 'paint') {
+      newData = await filterPaints(cleanData);
+    } else newData = await filterExperiences(cleanData);
+    setDataToShow(newData);
   };
 
   return (

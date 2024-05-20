@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   const title = searchParams.get('title') ?? '';
   const width = Number(searchParams.get('width') ?? '');
   const height = Number(searchParams.get('height') ?? '');
-  const all = searchParams.get('height') ?? true;
+  const all = searchParams.get('all') ?? true;
 
   let params = {};
   if (width) params = { ...params, width };
