@@ -10,13 +10,13 @@ import { toast } from 'react-toastify';
 import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import ModalForm from '../ModalForm/ModalForm';
-import { addPaint } from './requests';
+import { addExperience, addPaint } from './requests';
 
 interface Props {
   name: 'paint' | 'experience';
 }
 
-export const addPaintInputs = (): InputProps[] => [
+const addPaintInputs = (): InputProps[] => [
   {
     type: 'text',
     name: 'title',
@@ -118,6 +118,62 @@ export const addPaintInputs = (): InputProps[] => [
   }
 ];
 
+const addExperienceInputs = (): InputProps[] => [
+  {
+    type: 'text',
+    name: 'title',
+    label: 'labels.title',
+    placeholder: 'placeholders.title',
+    rules: {
+      required: {
+        value: true,
+        message: 'form_errors.input_required'
+      }
+    }
+  },
+  {
+    type: 'textarea',
+    name: 'description',
+    label: 'labels.description',
+    placeholder: 'placeholders.description',
+    rules: {
+      required: {
+        value: true,
+        message: 'form_errors.input_required'
+      }
+    }
+  },
+  {
+    type: 'select',
+    name: 'categories',
+    label: 'labels.category',
+    placeholder: 'placeholders.category',
+    options: [
+      { text: 'labels.materials', value: 1 },
+      { text: 'labels.autonomy', value: 2 },
+      { text: 'labels.technique', value: 3 }
+    ],
+    rules: {
+      required: {
+        value: true,
+        message: 'form_errors.input_required'
+      }
+    }
+  },
+  {
+    type: 'dropzone',
+    name: 'image',
+    label: 'labels.image',
+    placeholder: 'placeholders.image',
+    rules: {
+      required: {
+        value: true,
+        message: 'form_errors.input_required'
+      }
+    }
+  }
+];
+
 const AddRegistry = ({ name }: Props) => {
   const router = useRouter();
   const t = useTranslations();
@@ -126,24 +182,29 @@ const AddRegistry = ({ name }: Props) => {
 
   const inputsToDisplay = {
     paint: addPaintInputs,
-    experience: addPaintInputs
+    experience: addExperienceInputs
   }[name];
 
   const onAddSubmit = async (data: FieldValues) => {
-    data = {
-      ...data,
-      date_start: new Date(data.date_start).toISOString(),
-      date_finish: new Date(data.date_finish).toISOString()
-    };
+    if (name === 'paint') {
+      data = {
+        ...data,
+        date_start: new Date(data.date_start).toISOString(),
+        date_finish: new Date(data.date_finish).toISOString()
+      };
+    }
+    let request;
     const formData = new FormData();
     Object.entries(data).map((field) => {
       formData.append(field[0], field[1]);
     });
-    const paint = await addPaint(formData);
-    if (paint?.error_message) {
-      toast(t(`toasts.${paint?.error_message}`), { type: 'error' });
+    if (name === 'paint') {
+      request = await addPaint(formData);
+    } else request = await addExperience(formData);
+    if (request?.error_message) {
+      toast(t(`toasts.${request?.error_message}`), { type: 'error' });
     } else {
-      toast(t(`toasts.paint_added`), { type: 'success' });
+      toast(t(`toasts.${name}_added`), { type: 'success' });
       setShowModal(false);
     }
     startTransition(() => {

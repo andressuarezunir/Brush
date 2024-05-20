@@ -29,6 +29,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const t = useTranslations();
   const { control, handleSubmit } = useForm({ mode: 'all' });
   const [dataToShow, setDataToShow] = useState(data);
+  console.log({ dataToShow });
 
   const paintColumns: Column<T>[] = [
     {
@@ -67,9 +68,43 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
     }
   ];
 
+  const experienceColumns: Column<T>[] = [
+    {
+      name: t('labels.actions'),
+      cell: (experience) => (
+        <Button
+          variant="secondary"
+          title="titles.update_experience"
+          iconOnly
+          icon={<FaPencilAlt />}
+          onClick={() => {}}
+        />
+      )
+    },
+    {
+      name: t('labels.title'),
+      cell: ({ title }) => title
+    },
+    {
+      name: t('labels.date_updated'),
+      cell: ({ date_updated }) =>
+        moment(date_updated).format('YYYY-MM-DD HH:mm')
+    },
+    {
+      name: t('labels.category'),
+      cell: ({ categories }) => categories?.[0]?.category?.name || ' - '
+    },
+    {
+      name: t('labels.status'),
+      cell: ({ status }) => (
+        <Badge value={status === true ? 'visible' : 'hidden'} />
+      )
+    }
+  ];
+
   const columnsToDisplay = {
     paint: paintColumns,
-    experience: []
+    experience: experienceColumns
   }[module]!;
 
   const filtersToDisplay = {
@@ -90,7 +125,13 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
         placeholder: 'placeholders.width'
       }
     ],
-    experience: []
+    experience: [
+      {
+        type: 'text',
+        name: 'title',
+        placeholder: 'placeholders.title'
+      }
+    ]
   }[module]! as InputProps[];
 
   const onSubmit = async (data: FieldValues) => {
