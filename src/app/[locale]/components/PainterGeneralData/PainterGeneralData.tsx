@@ -6,9 +6,8 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 //* App Custom
 import Button from '../Button/Button';
-import Input, { InputProps } from '../Input/Input';
-import InputDropzone from '../InputDropzone/InputDropzone';
-import InputTextArea from '../InputTextArea/InputTextArea';
+import { InputProps } from '../Input/Input';
+import InputManager from '../InputManager/InputManager';
 import { updatePainterGeneralData } from './requests';
 
 export interface PainterGeneralDataProps {
@@ -114,23 +113,9 @@ const PainterGeneralData = ({ painter }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {inputs.map((input) => {
-        let inputToBeRendered;
-        if (input.type === 'textarea') {
-          inputToBeRendered = (
-            <InputTextArea key={input.name} {...input} control={control} />
-          );
-        } else if (input.type === 'text') {
-          inputToBeRendered = (
-            <Input key={input.name} {...input} control={control} />
-          );
-        } else if (input.type === 'dropzone') {
-          inputToBeRendered = (
-            <InputDropzone key={input.name} {...input} control={control} />
-          );
-        }
-        return inputToBeRendered;
-      })}
+      {inputs.map((input) => (
+        <InputManager key={input.name} input={input} control={control} />
+      ))}
       <Button
         type="submit"
         text="buttons.submit"

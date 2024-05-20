@@ -4,12 +4,12 @@ import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
+import { FaPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 //* App Custom
 import Button from '../Button/Button';
-import Input, { InputProps } from '../Input/Input';
-import InputSelect from '../InputSelect/InputSelect';
-import InputTextArea from '../InputTextArea/InputTextArea';
+import { InputProps } from '../Input/Input';
+import InputManager from '../InputManager/InputManager';
 import Modal from '../Modal/Modal';
 import modalStyles from '../Modal/modal.module.css';
 import ModalForm from '../ModalForm/ModalForm';
@@ -232,6 +232,7 @@ const PainterStudiesData = ({ studies }: Props) => {
       <Button
         variant="secondary"
         text="buttons.add_study"
+        icon={<FaPlus />}
         onClick={() => setShowAddStudyModal(true)}
       />
       <div className={styles.patient_studies}>
@@ -242,31 +243,13 @@ const PainterStudiesData = ({ studies }: Props) => {
                 onUpdateStudy({ pk: study.id, data })
               )}
             >
-              {inputs(study).map((input) => {
-                let inputToBeRendered;
-                if (input.type === 'textarea') {
-                  inputToBeRendered = (
-                    <InputTextArea
-                      key={input.name}
-                      {...input}
-                      control={control}
-                    />
-                  );
-                } else if (['text', 'date'].includes(input.type)) {
-                  inputToBeRendered = (
-                    <Input key={input.name} {...input} control={control} />
-                  );
-                } else if (input.type === 'select') {
-                  inputToBeRendered = (
-                    <InputSelect
-                      key={input.name}
-                      {...input}
-                      control={control}
-                    />
-                  );
-                }
-                return inputToBeRendered;
-              })}
+              {inputs(study).map((input) => (
+                <InputManager
+                  key={input.name}
+                  input={input}
+                  control={control}
+                />
+              ))}
               <div className={styles.patient_study_buttons}>
                 <Button
                   type="submit"

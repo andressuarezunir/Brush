@@ -3,10 +3,8 @@ import { useTranslations } from 'next-intl';
 import { FieldValues, useForm } from 'react-hook-form';
 //* App Custom
 import Button from '../Button/Button';
-import Input, { InputProps } from '../Input/Input';
-import InputDropzone from '../InputDropzone/InputDropzone';
-import InputSelect from '../InputSelect/InputSelect';
-import InputTextArea from '../InputTextArea/InputTextArea';
+import { InputProps } from '../Input/Input';
+import InputManager from '../InputManager/InputManager';
 import styles from '../Modal/modal.module.css';
 
 interface Props {
@@ -33,27 +31,9 @@ const ModalForm = ({
       </span>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          {inputs().map((input) => {
-            let inputToBeRendered;
-            if (input.type === 'textarea') {
-              inputToBeRendered = (
-                <InputTextArea key={input.name} {...input} control={control} />
-              );
-            } else if (['text', 'number', 'date'].includes(input.type)) {
-              inputToBeRendered = (
-                <Input key={input.name} {...input} control={control} />
-              );
-            } else if (input.type === 'select') {
-              inputToBeRendered = (
-                <InputSelect key={input.name} {...input} control={control} />
-              );
-            } else if (input.type === 'dropzone') {
-              inputToBeRendered = (
-                <InputDropzone key={input.name} {...input} control={control} />
-              );
-            }
-            return inputToBeRendered;
-          })}
+          {inputs().map((input) => (
+            <InputManager key={input.name} input={input} control={control} />
+          ))}
           <div className={styles.modalForm_btns}>
             <Button variant="secondary" text="buttons.close" onClick={onHide} />
             <Button
