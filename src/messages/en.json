@@ -153,5 +153,10 @@
   "visible": "Visible",
   "hidden": "Hidden",
   "on_sale": "On sale",
-  "not_on_sale": "Not on sale"
+  "not_on_sale": "Not on sale",
+  "banner": {
+    "question": "Would you like to contact me?",
+    "description": "If you are looking for a custom job or want to be a partner you can contact me",
+    "button": "Fill out the form"
+  }
 }

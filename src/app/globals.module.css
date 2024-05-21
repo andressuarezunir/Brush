@@ -14,7 +14,8 @@
   background-color: hsl(0, 0%, 98%);
 }
 .public_container {
-  min-height: 84vh;
+  height: 84vh;
+  overflow: auto;
 }
 .public_container_width {
   width: 95%;

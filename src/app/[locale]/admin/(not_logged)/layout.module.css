@@ -1,5 +1,5 @@
 .admin_bg {
-  background-image: url('../../../../../public/regural_bg.png');
+  background-image: url('../../../../../public/regural_bg.webp');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,6 +15,7 @@
 .admin_container h1 {
   visibility: hidden;
   height: 0;
+  margin: 0;
 }
 .admin_not_logged_form {
   display: flex;

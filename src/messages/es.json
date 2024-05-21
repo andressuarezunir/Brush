@@ -153,5 +153,10 @@
   "visible": "Visible",
   "hidden": "Oculto",
   "on_sale": "En venta",
-  "not_on_sale": "No está en venta"
+  "not_on_sale": "No está en venta",
+  "banner": {
+    "question": "¿Deseas ponerte en contacto conmigo?",
+    "description": "Si estás buscando un trabajo personalizado o deseas ser un socio puedes contactarme",
+    "button": "Llenar formulario"
+  }
 }

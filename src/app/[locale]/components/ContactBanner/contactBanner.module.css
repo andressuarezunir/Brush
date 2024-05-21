@@ -1,0 +1,19 @@
+.banner {
+  background-image: url('../../../../../public/contact_banner_bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 0.5rem;
+  text-align: center;
+}
+.banner h3 {
+  font-size: 25px;
+  font-weight: 600;
+  color: hsl(230, 47%, 27%);
+  margin: 0;
+}
