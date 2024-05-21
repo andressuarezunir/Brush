@@ -9,13 +9,7 @@ export async function GET(_: Request, { params }: Segment) {
   try {
     const experience = await prisma.experience.findFirst({
       where: { title: { contains: params.value, mode: 'insensitive' } },
-      include: {
-        categories: {
-          select: {
-            category: true
-          }
-        }
-      }
+      include: { categories: { select: { category: true } } }
     });
     return NextResponse.json(experience);
   } catch (error) {

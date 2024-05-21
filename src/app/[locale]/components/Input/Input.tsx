@@ -33,7 +33,7 @@ export interface InputProps {
   label?: string;
   placeholder?: string;
   options?: InputSelectOptions[];
-  defaultValue?: string | number;
+  defaultValue?: string | number | boolean;
   rules?: InputRuleOptions;
   control?: Control;
 }
@@ -68,7 +68,7 @@ const Input = ({
             id={name}
             name={name}
             placeholder={placeholder && t(placeholder)}
-            defaultValue={defaultValue}
+            defaultValue={defaultValue as string | number}
             onChange={onChange}
             className={styles.input}
           />

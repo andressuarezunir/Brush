@@ -9,13 +9,7 @@ export async function GET(_: Request, { params }: Segment) {
   try {
     const paint = await prisma.paint.findFirst({
       where: { title: { contains: params.value, mode: 'insensitive' } },
-      include: {
-        categories: {
-          select: {
-            category: true
-          }
-        }
-      }
+      include: { categories: { select: { category: true } } }
     });
     if (paint !== null) {
       return NextResponse.json(paint);

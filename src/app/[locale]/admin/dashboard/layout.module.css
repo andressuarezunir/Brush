@@ -36,3 +36,14 @@
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
+.dashboard_breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+}
+.dashboard_breadcrumb a {
+  color: hsl(14, 100%, 65%);
+  font-weight: 700;
+}
+.dashboard_breadcrumb a:hover {
+  color: hsl(14, 70%, 55%);
+}

@@ -12,7 +12,9 @@
   },
   "sections": {
     "home": "Home",
+    "paint": "Paint",
     "paints": "Paints",
+    "experience": "Experience",
     "experiences": "Experiences",
     "about_me": "About me",
     "contact": "Contact",
@@ -30,8 +32,10 @@
     "login": "This page is intended for the exclusive use of the painter to log in and modify the records",
     "forgot_pw": "This page is intended for the exclusive use of the painter to request a password change",
     "change_pw": "This page is intended for the exclusive use of the painter to set the new password",
+    "admin_paint": "This page is intended for the exclusive use of the painter to update the selected paint",
     "admin_painter": "This page is intended for the exclusive use of the painter to update his personal and studio data",
     "admin_paints": "This page is intended for the exclusive use of the painter to update his paints",
+    "admin_experience": "This page is intended for the exclusive use of the painter to update the selected experience",
     "admin_experiences": "This page is intended for the exclusive use of the painter to update his experiences"
   },
   "return_link": {
@@ -44,10 +48,14 @@
     "add_study": "Add study",
     "close": "Close",
     "delete_study": "Delete study",
+    "delete_paint": "Delete paint",
+    "delete_experience": "Delete experience",
     "forgot_pw": "Forgot my password",
     "logout": "Logout",
     "submit": "Submit",
-    "update_study": "Update study"
+    "update_study": "Update study",
+    "update_paint": "Update paint",
+    "update_experience": "Update experience"
   },
   "labels": {
     "abstract": "Abstract",
@@ -68,6 +76,7 @@
     "name": "Name",
     "new_password": "New password",
     "oil_painting": "Oil painting",
+    "on_sale": "On sale?",
     "password": "Password",
     "status": "Status",
     "subtitle": "Subtitle",
@@ -87,6 +96,8 @@
     "last_name": "Enter last name",
     "name": "Enter name",
     "new_password": "Enter new password",
+    "on_sale": "Select if it is on sale",
+    "status": "Select status",
     "subtitle": "Enter subtitle",
     "title": "Enter title",
     "password": "Enter password",
@@ -113,7 +124,9 @@
     "Token is no longer available": "Token is no longer available",
     "User not found": "User not found",
     "experience_added": "Experience added",
+    "experience_updated": "Experience updated",
     "paint_added": "Paint added",
+    "paint_updated": "Paint updated",
     "painter_general_data_updated": "Painter general data updated",
     "painter_study_added": "Painter study added",
     "painter_study_deleted": "Painter study deleted",
@@ -129,5 +142,7 @@
   },
   "datatable_with_no_data": "Table without data",
   "visible": "Visible",
-  "hidden": "Hidden"
+  "hidden": "Hidden",
+  "on_sale": "On sale",
+  "not_on_sale": "Not on sale"
 }

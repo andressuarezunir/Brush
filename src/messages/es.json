@@ -12,7 +12,9 @@
   },
   "sections": {
     "home": "Inicio",
+    "paint": "Pintura",
     "paints": "Pinturas",
+    "experience": "Experiencia",
     "experiences": "Experiencias",
     "about_me": "Sobre mí",
     "contact": "Contacto",
@@ -31,7 +33,9 @@
     "forgot_pw": "Esta página está destinada para uso exclusivo del pintor para solicitar el cambio de contraseña",
     "change_pw": "Esta página está destinada para uso exclusivo del pintor para establecer la nueva contraseña",
     "admin_painter": "Esta página está destinada para uso exclusivo del pintor para actualizar sus datos personales y de estudio",
+    "admin_paint": "Esta página está destinada para uso exclusivo del pintor para actualizar la pintura seleccionada",
     "admin_paints": "Esta página está destinada para uso exclusivo del pintor para actualizar sus pinturas",
+    "admin_experience": "Esta página está destinada para uso exclusivo del pintor para actualizar la experiencia seleccionada",
     "admin_experiences": "Esta página está destinada para uso exclusivo del pintor para actualizar sus experiencias"
   },
   "return_link": {
@@ -44,10 +48,14 @@
     "add_study": "Agregar estudio",
     "close": "Cerrar",
     "delete_study": "Eliminar estudio",
+    "delete_paint": "Eliminar pintura",
+    "delete_experience": "Eliminar experiencia",
     "forgot_pw": "Olvide mi contraseña",
     "logout": "Cerrar sesión",
     "submit": "Enviar",
-    "update_study": "Actualizar estudio"
+    "update_study": "Actualizar estudio",
+    "update_paint": "Actualizar pintura",
+    "update_experience": "Actualizar experiencia"
   },
   "labels": {
     "abstract": "Abstracto",
@@ -68,6 +76,7 @@
     "name": "Nombre",
     "new_password": "Nueva contraseña",
     "oil_painting": "Oleo",
+    "on_sale": "¿En venta?",
     "password": "Contraseña",
     "status": "Estado",
     "subtitle": "Subtítulo",
@@ -87,7 +96,9 @@
     "last_name": "Ingresar apellido",
     "name": "Ingresar nombre",
     "new_password": "Ingresar nueva contraseña",
+    "on_sale": "Seleccionar si está en venta",
     "password": "Ingresar contraseña",
+    "status": "Seleccionar estado",
     "subtitle": "Ingresar subtítulo",
     "title": "Ingresar título",
     "verify_password": "Ingresar la nueva contraseña de nuevo",
@@ -113,7 +124,9 @@
     "Token is no longer available": "El token ya no está habilitado",
     "User not found": "Usuario no encontrado",
     "experience_added": "Experiencia agregada",
+    "experience_updated": "Experiencia actualizada",
     "paint_added": "Pintura agregada",
+    "paint_updated": "Pintura actualizada",
     "painter_general_data_updated": "Datos generales del pintor actualizados",
     "painter_study_added": "Estudio del pintor agregado",
     "painter_study_deleted": "Estudio del pintor eliminado",
@@ -129,5 +142,7 @@
   },
   "datatable_with_no_data": "Tabla sin datos",
   "visible": "Visible",
-  "hidden": "Oculto"
+  "hidden": "Oculto",
+  "on_sale": "En venta",
+  "not_on_sale": "No está en venta"
 }
