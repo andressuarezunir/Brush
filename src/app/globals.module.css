@@ -15,12 +15,14 @@
 }
 .public_container {
   min-height: 84vh;
+}
+.public_container_width {
   width: 95%;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .public_container {
-    width: 75%;
+  .public_container_width {
+    width: 70%;
   }
 }
