@@ -228,10 +228,10 @@ const AdminForm = ({ module, defaultData }: Props) => {
       name: 'status',
       label: 'labels.status',
       placeholder: 'placeholders.status',
-      defaultValue: defaultData.status === true ? 1 : 0,
+      defaultValue: defaultData.status === true ? 1 : 2,
       options: [
         { text: 'visible', value: 1 },
-        { text: 'hidden', value: 0 }
+        { text: 'hidden', value: 2 }
       ],
       rules: {
         required: {

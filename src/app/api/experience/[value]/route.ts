@@ -35,7 +35,7 @@ export async function PATCH(request: Request, { params }: Segment) {
   if (description) dataUpdated = { ...dataUpdated, description };
   if (image_url) dataUpdated = { ...dataUpdated, image: image_url };
   if (status) {
-    dataUpdated = { ...dataUpdated, status: status === 'true' };
+    dataUpdated = { ...dataUpdated, status: status === '1' };
   }
 
   try {
