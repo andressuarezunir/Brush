@@ -8,6 +8,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 //* App Custom
+import { cleanObject } from '@/app/helpers/cleanObject';
 import {
   Experience,
   ExperienceCategory,
@@ -159,13 +160,7 @@ const AdminForm = ({ module, defaultData }: Props) => {
       type: 'dropzone',
       name: 'image',
       label: 'labels.image',
-      placeholder: 'placeholders.image',
-      rules: {
-        required: {
-          value: true,
-          message: 'form_errors.input_required'
-        }
-      }
+      placeholder: 'placeholders.image'
     },
     {
       type: 'textarea',
@@ -254,13 +249,7 @@ const AdminForm = ({ module, defaultData }: Props) => {
       type: 'dropzone',
       name: 'image',
       label: 'labels.image',
-      placeholder: 'placeholders.image',
-      rules: {
-        required: {
-          value: true,
-          message: 'form_errors.input_required'
-        }
-      }
+      placeholder: 'placeholders.image'
     }
   ];
 
@@ -279,7 +268,7 @@ const AdminForm = ({ module, defaultData }: Props) => {
     }
     let request;
     const formData = new FormData();
-    Object.entries(data).map((field) => {
+    Object.entries(cleanObject(data)).map((field) => {
       formData.append(field[0], field[1]);
     });
     if (module === 'paint') {
