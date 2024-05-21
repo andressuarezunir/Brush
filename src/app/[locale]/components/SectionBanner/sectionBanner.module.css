@@ -1,0 +1,26 @@
+.section_banner {
+  background-image: url('../../../../../public/section_bg.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+.section_banner h2 {
+  color: hsl(230, 47%, 27%);
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0;
+}
+.section_breadcrumb {
+  color: hsl(225, 9%, 18%);
+  text-decoration: none;
+  display: flex;
+  gap: 0.3rem;
+}
+.section_breadcrumb:hover {
+  text-decoration: underline;
+}

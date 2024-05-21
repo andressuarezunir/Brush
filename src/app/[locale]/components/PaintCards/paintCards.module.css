@@ -13,13 +13,15 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.paints_container {
-  grid-template-columns: repeat(3, 1fr);
+.paint_image_bg {
+  border-radius: 1rem;
+  background-color: black;
 }
 .paint_card_image {
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   width: 100% !important;
   object-fit: cover !important;
+  transition: all 0.3s ease-in-out;
 }
 .paint_title {
   color: hsl(225, 9%, 18%);
@@ -27,6 +29,22 @@
   text-align: center;
 }
 .paint_year {
+  color: hsl(225, 9%, 18%);
   font-weight: 400;
   text-align: center;
+}
+.paint_container {
+  transition: all 0.3s ease-in-out;
+}
+.paint_link {
+  text-decoration: none;
+}
+.paint_link:hover {
+  text-decoration: underline solid hsl(225, 9%, 18%);
+}
+.paint_link:hover .paint_card_image {
+  opacity: 80%;
+}
+.paint_link:hover .paint_container {
+  scale: 1.02 !important;
 }

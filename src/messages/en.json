@@ -25,7 +25,9 @@
   },
   "metadata": {
     "public_home": "On this page you will find the introduction to the painter's page",
-    "public_paints": "On this page you will find all the works of the painter and in which you can filter the following works",
+    "public_paint": "On this page you will find all the paint information of the selected one",
+    "public_paints": "On this page you will find all the painter's paints and you can filter them as follows",
+    "public_experience": "On this page you will find all the experience information of the selected one",
     "public_experiences": "On this page you will find all the painter's experiences and you can filter them as follows",
     "public_about_me": "This page is dedicated to the painter and the path he has taken",
     "public_contact": "On this page you will be able to contact the painter by filling in a form",

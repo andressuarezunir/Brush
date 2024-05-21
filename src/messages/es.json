@@ -25,7 +25,9 @@
   },
   "metadata": {
     "public_home": "En esta página se encuentra la introducción a la página del pintor",
-    "public_paints": "En esta página se encuentran todas las obras del pintor y en la cual se pueden filtrar",
+    "public_paint": "En esta página se encuentra toda la información sobre la pintura seleccionada",
+    "public_paints": "En esta página se encuentran todas las pinturas del pintor y en la cual se pueden filtrar",
+    "public_experience": "En esta página se encuentra toda la información sobre la experiencia seleccionada",
     "public_experiences": "En esta página se encuentran todas las experiencias del pintor y en la cual se pueden filtrar",
     "public_about_me": "En esta página está dedicada para dar a conocer al pintor y el recorrido que lleva",
     "public_contact": "En esta página se encarga de poder mostrar entrar en contacto con el pintor a traves de un formulario",

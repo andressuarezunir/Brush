@@ -6,6 +6,7 @@ import prisma from '@/lib/prisma';
 import globalStyles from '../../../globals.module.css';
 import ContactBanner from '../../components/ContactBanner/ContactBanner';
 import PaintCards from '../../components/PaintCards/PaintCards';
+import SectionBanner from '../../components/SectionBanner/SectionBanner';
 import styles from './paints.module.css';
 
 export async function generateMetadata() {
@@ -19,6 +20,9 @@ export async function generateMetadata() {
 }
 
 export default async function PaintsPage() {
+  const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
+  const t = await getTranslations({ locale });
+
   const paints = await prisma.paint.findMany({
     include: { categories: { select: { category: true } } },
     where: { status: true, deleted: false }
@@ -26,6 +30,7 @@ export default async function PaintsPage() {
 
   return (
     <div className={globalStyles.public_container}>
+      <SectionBanner title={t('sections.paints')} />
       <div className={globalStyles.public_container_width}>
         <div className={styles.page_container}>
           <PaintCards data={paints} />
