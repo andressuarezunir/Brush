@@ -1,28 +1,20 @@
-export const updatePaint = async (pk: number, data: FormData) => {
-  const paint = await fetch(`/api/paint/${pk}`, {
+export const updateRegistry = async (
+  module: 'paint' | 'experience',
+  pk: number,
+  data: FormData
+) => {
+  const paint = await fetch(`/api/${module}/${pk}`, {
     method: 'PATCH',
     body: data
   }).then((res) => res.json());
   return paint;
 };
 
-export const updateExperience = async (pk: number, data: FormData) => {
-  const paint = await fetch(`/api/experience/${pk}`, {
-    method: 'PATCH',
-    body: data
-  }).then((res) => res.json());
-  return paint;
-};
-
-export const deletePaint = async (pk: number) => {
-  const paint = await fetch(`/api/paint/${pk}`, {
-    method: 'DELETE'
-  }).then((res) => res.json());
-  return paint;
-};
-
-export const deleteExperience = async (pk: number) => {
-  const paint = await fetch(`/api/experience/${pk}`, {
+export const deleteRegistry = async (
+  module: 'paint' | 'experience',
+  pk: number
+) => {
+  const paint = await fetch(`/api/${module}/${pk}`, {
     method: 'DELETE'
   }).then((res) => res.json());
   return paint;

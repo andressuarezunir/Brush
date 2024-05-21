@@ -20,12 +20,7 @@ import { InputProps } from '../Input/Input';
 import InputManager from '../InputManager/InputManager';
 import ConfirmationModal from '../Modal/ConfirmationModal';
 import styles from './adminForm.module.css';
-import {
-  deleteExperience,
-  deletePaint,
-  updateExperience,
-  updatePaint
-} from './requests';
+import { deleteRegistry, updateRegistry } from './requests';
 
 interface PaintProps extends Paint {
   categories: { category: PaintCategory }[];
@@ -274,14 +269,11 @@ const AdminForm = ({ module, defaultData }: Props) => {
         date_finish: new Date(data.date_finish).toISOString()
       };
     }
-    let request;
     const formData = new FormData();
     Object.entries(cleanObject(data)).map((field) => {
       formData.append(field[0], field[1]);
     });
-    if (module === 'paint') {
-      request = await updatePaint(defaultData.id, formData);
-    } else request = await updateExperience(defaultData.id, formData);
+    const request = await updateRegistry(module, defaultData.id, formData);
     if (request?.error_message) {
       toast(t(`toasts.${request?.error_message}`), { type: 'error' });
     } else {
@@ -294,9 +286,7 @@ const AdminForm = ({ module, defaultData }: Props) => {
 
   const onDelete = async () => {
     const id = defaultData.id;
-    let request;
-    if (module === 'paint') request = await deletePaint(id);
-    else request = await deleteExperience(id);
+    const request = await deleteRegistry(module, id);
     if (request?.error_message) {
       toast(t(`toasts.${request?.error_message}`), { type: 'error' });
     } else {
