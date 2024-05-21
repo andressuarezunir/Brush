@@ -187,7 +187,9 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
         data={dataToShow}
         responsive
         striped
-        noDataComponent={<p>{t('datatable_with_no_data')}</p>}
+        noDataComponent={
+          <div className={styles.no_data}>{t('datatable_with_no_data')}</div>
+        }
       />
     </>
   );

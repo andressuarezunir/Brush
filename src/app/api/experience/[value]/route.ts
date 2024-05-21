@@ -48,3 +48,15 @@ export async function PATCH(request: Request, { params }: Segment) {
     return NextResponse.json({ message: 'Error in request' }, { status: 500 });
   }
 }
+
+export async function DELETE(_: Request, { params }: Segment) {
+  try {
+    const experience = await prisma.experience.update({
+      where: { id: Number(params.value) },
+      data: { deleted: true }
+    });
+    return NextResponse.json(experience);
+  } catch (error) {
+    return NextResponse.json({ message: 'Error in request' }, { status: 500 });
+  }
+}

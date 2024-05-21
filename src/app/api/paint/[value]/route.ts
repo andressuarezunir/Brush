@@ -8,7 +8,10 @@ import prisma from '@/lib/prisma';
 export async function GET(_: Request, { params }: Segment) {
   try {
     const paint = await prisma.paint.findFirst({
-      where: { title: { contains: params.value, mode: 'insensitive' } },
+      where: {
+        title: { contains: params.value, mode: 'insensitive' },
+        deleted: false
+      },
       include: { categories: { select: { category: true } } }
     });
     if (paint !== null) {
@@ -66,6 +69,18 @@ export async function PATCH(request: Request, { params }: Segment) {
       data: dataUpdated
     });
 
+    return NextResponse.json(paint);
+  } catch (error) {
+    return NextResponse.json({ message: 'Error in request' }, { status: 500 });
+  }
+}
+
+export async function DELETE(_: Request, { params }: Segment) {
+  try {
+    const paint = await prisma.paint.update({
+      where: { id: Number(params.value) },
+      data: { deleted: true }
+    });
     return NextResponse.json(paint);
   } catch (error) {
     return NextResponse.json({ message: 'Error in request' }, { status: 500 });

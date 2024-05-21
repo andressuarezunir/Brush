@@ -20,7 +20,8 @@ export default async function ExperiencesPage() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
   const t = await getTranslations({ locale });
   const experiences = await prisma.experience.findMany({
-    include: { categories: { select: { category: true } } }
+    include: { categories: { select: { category: true } } },
+    where: { deleted: false }
   });
 
   return (

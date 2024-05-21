@@ -44,6 +44,7 @@ model Paint {
   date_finish  DateTime
   date_created DateTime            @default(now())
   date_updated DateTime            @updatedAt
+  deleted      Boolean             @default(false)
   categories   CategoriesOnPaint[]
 }
 
@@ -70,6 +71,7 @@ model Experience {
   description  String                   @db.VarChar()
   date_created DateTime                 @default(now())
   date_updated DateTime                 @updatedAt
+  deleted      Boolean                  @default(false)
   categories   CategoriesOnExperience[]
 }
 
@@ -105,6 +107,7 @@ model Study {
   description String        @db.VarChar(300)
   date_start  DateTime
   date_finish DateTime
+  deleted     Boolean       @default(false)
   category    StudyCategory @relation(fields: [category_id], references: [id])
   category_id Int
 }

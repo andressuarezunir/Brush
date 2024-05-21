@@ -1,7 +1,7 @@
 'use client';
 //* External
 import moment from 'moment-timezone';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
@@ -19,7 +19,12 @@ import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import InputManager from '../InputManager/InputManager';
 import styles from './adminForm.module.css';
-import { updateExperience, updatePaint } from './requests';
+import {
+  deleteExperience,
+  deletePaint,
+  updateExperience,
+  updatePaint
+} from './requests';
 
 interface PaintProps extends Paint {
   categories: { category: PaintCategory }[];
@@ -37,6 +42,7 @@ interface Props {
 const AdminForm = ({ module, defaultData }: Props) => {
   const router = useRouter();
   const t = useTranslations();
+  const localeActive = useLocale();
   const [isPending, startTransition] = useTransition();
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
 
@@ -286,7 +292,21 @@ const AdminForm = ({ module, defaultData }: Props) => {
 
   const onDelete = async () => {
     const id = defaultData.id;
-    console.log(id);
+    let request;
+    if (module === 'paint') request = await deletePaint(id);
+    else request = await deleteExperience(id);
+    if (request?.error_message) {
+      toast(t(`toasts.${request?.error_message}`), { type: 'error' });
+    } else {
+      toast(t(`toasts.${module}_deleted`), { type: 'success' });
+      startTransition(() => {
+        router.replace(
+          `/${localeActive}/admin/dashboard/${
+            module === 'paint' ? 'paints' : 'experiences'
+          }`
+        );
+      });
+    }
   };
 
   return (

@@ -6,3 +6,7 @@
 .filter_input {
   width: 20% !important;
 }
+.no_data {
+  padding: 2rem 0;
+  font-weight: 700;
+}

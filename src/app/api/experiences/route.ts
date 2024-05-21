@@ -30,7 +30,8 @@ export async function GET(request: Request) {
     const experiences = await prisma.experience.findMany({
       where: {
         title: { contains: title, mode: 'insensitive' },
-        ...params
+        ...params,
+        deleted: false
       },
       include: { categories: { select: { category: true } } }
     });

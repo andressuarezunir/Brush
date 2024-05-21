@@ -30,7 +30,7 @@ export default async function PainterPage() {
   };
   const studies =
     (await prisma.studyCategory.findMany({
-      include: { study: { where: { status: true } } }
+      include: { study: { where: { status: true, deleted: false } } }
     })) || [];
 
   return (

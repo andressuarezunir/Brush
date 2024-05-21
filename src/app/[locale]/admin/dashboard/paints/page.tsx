@@ -20,7 +20,8 @@ export default async function PaintsPage() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
   const t = await getTranslations({ locale });
   const paints = await prisma.paint.findMany({
-    include: { categories: { select: { category: true } } }
+    include: { categories: { select: { category: true } } },
+    where: { deleted: false }
   });
 
   return (

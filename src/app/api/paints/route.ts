@@ -20,7 +20,8 @@ export async function GET(request: Request) {
     const paints = await prisma.paint.findMany({
       where: {
         title: { contains: title, mode: 'insensitive' },
-        ...params
+        ...params,
+        deleted: false
       },
       include: { categories: { select: { category: true } } }
     });

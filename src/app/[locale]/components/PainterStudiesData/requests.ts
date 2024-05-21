@@ -14,9 +14,7 @@ export const updateStudy = async ({ pk, data }: Props) => {
 
 export const deleteStudy = async (pk: number) => {
   const study = await fetch(`/api/study/${pk}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ status: false }),
-    headers: { 'Content-Type': 'application/json' }
+    method: 'DELETE'
   }).then((res) => res.json());
   return study;
 };
