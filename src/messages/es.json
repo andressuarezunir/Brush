@@ -38,6 +38,10 @@
     "admin_experience": "Esta página está destinada para uso exclusivo del pintor para actualizar la experiencia seleccionada",
     "admin_experiences": "Esta página está destinada para uso exclusivo del pintor para actualizar sus experiencias"
   },
+  "home_sections": {
+    "experiences": "Algunas de mis experiencias",
+    "paints": "Algunas de mis pinturas"
+  },
   "return_link": {
     "home": "Volver a la página pública",
     "login": "Volver a la página de logueo"
@@ -54,6 +58,8 @@
     "delete_experience": "Eliminar experiencia",
     "forgot_pw": "Olvide mi contraseña",
     "logout": "Cerrar sesión",
+    "see_all_experiences": "Ver todas mis experiencias",
+    "see_all_paints": "Ver todas mis obras",
     "submit": "Enviar",
     "update_study": "Actualizar estudio",
     "update_paint": "Actualizar pintura",

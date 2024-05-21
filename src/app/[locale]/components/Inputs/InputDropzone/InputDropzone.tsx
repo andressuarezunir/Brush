@@ -37,7 +37,7 @@ const InputDropzone = ({
             )}
           </label>
           <Dropzone
-            accept=".jpg, .png"
+            accept=".jpg, .jpeg, .png, .webp"
             onDrop={(files) => {
               setFileSelected(files[0]);
               onChange(files[0]);

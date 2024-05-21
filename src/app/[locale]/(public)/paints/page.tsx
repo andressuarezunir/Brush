@@ -2,8 +2,11 @@
 import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 //* App Custom
+import prisma from '@/lib/prisma';
 import globalStyles from '../../../globals.module.css';
 import ContactBanner from '../../components/ContactBanner/ContactBanner';
+import PaintCards from '../../components/PaintCards/PaintCards';
+import styles from './paints.module.css';
 
 export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
@@ -16,10 +19,17 @@ export async function generateMetadata() {
 }
 
 export default async function PaintsPage() {
+  const paints = await prisma.paint.findMany({
+    include: { categories: { select: { category: true } } },
+    where: { status: true, deleted: false }
+  });
+
   return (
     <div className={globalStyles.public_container}>
       <div className={globalStyles.public_container_width}>
-        <h1>Paints Page</h1>
+        <div className={styles.page_container}>
+          <PaintCards data={paints} />
+        </div>
       </div>
       <ContactBanner />
     </div>

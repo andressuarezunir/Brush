@@ -1,0 +1,32 @@
+.paints_container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .paints_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .paints_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.paints_container {
+  grid-template-columns: repeat(3, 1fr);
+}
+.paint_card_image {
+  border-radius: 0.5rem;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.paint_title {
+  color: hsl(225, 9%, 18%);
+  font-weight: 700;
+  text-align: center;
+}
+.paint_year {
+  font-weight: 400;
+  text-align: center;
+}

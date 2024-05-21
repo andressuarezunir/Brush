@@ -22,11 +22,11 @@ import ConfirmationModal from '../Modals/Modal/ConfirmationModal';
 import styles from './adminForm.module.css';
 import { deleteRegistry, updateRegistry } from './requests';
 
-interface PaintProps extends Paint {
+export interface PaintProps extends Paint {
   categories: { category: PaintCategory }[];
 }
 
-interface ExperienceProps extends Experience {
+export interface ExperienceProps extends Experience {
   categories: { category: ExperienceCategory }[];
 }
 

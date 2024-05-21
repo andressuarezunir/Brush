@@ -21,9 +21,13 @@
   width: 95%;
   margin: 0 auto;
 }
-
 @media (min-width: 768px) {
   .public_container_width {
-    width: 70%;
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .public_container_width {
+    width: 60%;
   }
 }

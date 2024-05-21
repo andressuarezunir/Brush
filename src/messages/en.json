@@ -38,6 +38,10 @@
     "admin_experience": "This page is intended for the exclusive use of the painter to update the selected experience",
     "admin_experiences": "This page is intended for the exclusive use of the painter to update his experiences"
   },
+  "home_sections": {
+    "experiences": "Some of my experiences",
+    "paints": "Some of my paints"
+  },
   "return_link": {
     "home": "Return to public page",
     "login": "Return to login"
@@ -54,6 +58,8 @@
     "delete_experience": "Delete experience",
     "forgot_pw": "Forgot my password",
     "logout": "Logout",
+    "see_all_experiences": "See all my experiences",
+    "see_all_paints": "See all my paints",
     "submit": "Submit",
     "update_study": "Update study",
     "update_paint": "Update paint",
