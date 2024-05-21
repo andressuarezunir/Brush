@@ -140,6 +140,10 @@
     "studies": "Update studies data"
   },
   "confirmation": {
+    "delete_paint_title": "Do you want to delete the paint?",
+    "delete_paint_desc": "If the process is done you will not be able to recover the paint",
+    "delete_experience_title": "Do you want to delete the experience?",
+    "delete_experience_desc": "If the process is done you will not be able to recover the experience",
     "delete_study_title": "Do you want to delete the study?",
     "delete_study_desc": "If the process is done you will not be able to recover the study"
   },

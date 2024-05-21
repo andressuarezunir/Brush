@@ -3,7 +3,7 @@
 import moment from 'moment-timezone';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
+import { useState, useTransition } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -18,6 +18,7 @@ import {
 import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import InputManager from '../InputManager/InputManager';
+import Modal from '../Modal/Modal';
 import styles from './adminForm.module.css';
 import {
   deleteExperience,
@@ -45,6 +46,7 @@ const AdminForm = ({ module, defaultData }: Props) => {
   const localeActive = useLocale();
   const [isPending, startTransition] = useTransition();
   const { control, formState, handleSubmit } = useForm({ mode: 'all' });
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const paintInputs = (defaultData: PaintProps): InputProps[] => [
     {
@@ -310,30 +312,49 @@ const AdminForm = ({ module, defaultData }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.admin_form_input_wrapper}>
-        {inputsToRender.map((input) => (
-          <div key={input.name} className={styles.admin_form_input}>
-            <InputManager input={input} control={control} />
-          </div>
-        ))}
-      </div>
-      <div className={styles.admin_form_buttons}>
-        <Button
-          type="submit"
-          text={`buttons.update_${module}`}
-          disabled={!formState.isValid || isPending}
-          title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
+    <>
+      {showDeleteModal && (
+        <Modal
+          title={`confirmation.delete_${module}_title`}
+          description={`confirmation.delete_${module}_desc`}
+          body={
+            <div className={styles.admin_form_buttons}>
+              <Button
+                variant="secondary"
+                text="buttons.close"
+                onClick={() => setShowDeleteModal(false)}
+              />
+              <Button text={`buttons.delete_${module}`} onClick={onDelete} />
+            </div>
+          }
+          onHide={() => setShowDeleteModal(false)}
         />
-        <Button
-          variant="secondary"
-          text={`buttons.delete_${module}`}
-          icon={<FaTrash />}
-          disabled={isPending}
-          onClick={onDelete}
-        />
-      </div>
-    </form>
+      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.admin_form_input_wrapper}>
+          {inputsToRender.map((input) => (
+            <div key={input.name} className={styles.admin_form_input}>
+              <InputManager input={input} control={control} />
+            </div>
+          ))}
+        </div>
+        <div className={styles.admin_form_buttons}>
+          <Button
+            type="submit"
+            text={`buttons.update_${module}`}
+            disabled={!formState.isValid || isPending}
+            title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
+          />
+          <Button
+            variant="secondary"
+            text={`buttons.delete_${module}`}
+            icon={<FaTrash />}
+            disabled={isPending}
+            onClick={() => setShowDeleteModal(true)}
+          />
+        </div>
+      </form>
+    </>
   );
 };
 

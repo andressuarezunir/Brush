@@ -140,6 +140,10 @@
     "studies": "Actualizar datos de estudios"
   },
   "confirmation": {
+    "delete_paint_title": "¿Desea eliminar la pintura?",
+    "delete_paint_desc": "Si el proceso es realizado no podrá recuperar la pintura",
+    "delete_experience_title": "¿Desea eliminar la experiencia?",
+    "delete_experience_desc": "Si el proceso es realizado no podrá recuperar la experiencia",
     "delete_study_title": "¿Desea eliminar el estudio?",
     "delete_study_desc": "Si el proceso es realizado no podrá recuperar el estudio"
   },
