@@ -1,7 +1,7 @@
 //* External
 import { useTranslations } from 'next-intl';
 //* App Custom
-import Button from '../Button/Button';
+import Button from '../../Button/Button';
 import styles from './modal.module.css';
 
 interface Props {

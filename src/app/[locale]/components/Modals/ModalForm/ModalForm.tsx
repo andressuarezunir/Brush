@@ -2,9 +2,9 @@
 import { useTranslations } from 'next-intl';
 import { FieldValues, useForm } from 'react-hook-form';
 //* App Custom
-import Button from '../Button/Button';
-import { InputProps } from '../Inputs/Input/Input';
-import InputManager from '../Inputs/InputManager/InputManager';
+import Button from '../../Button/Button';
+import { InputProps } from '../../Inputs/Input/Input';
+import InputManager from '../../Inputs/InputManager/InputManager';
 import styles from '../Modal/modal.module.css';
 
 interface Props {

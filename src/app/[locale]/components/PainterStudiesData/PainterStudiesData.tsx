@@ -10,8 +10,8 @@ import { toast } from 'react-toastify';
 import Button from '../Button/Button';
 import { InputProps } from '../Inputs/Input/Input';
 import InputManager from '../Inputs/InputManager/InputManager';
-import ConfirmationModal from '../Modal/ConfirmationModal';
-import ModalForm from '../ModalForm/ModalForm';
+import ConfirmationModal from '../Modals/Modal/ConfirmationModal';
+import ModalForm from '../Modals/ModalForm/ModalForm';
 import { addStudy, deleteStudy, updateStudy } from './requests';
 import styles from './studies.module.css';
 

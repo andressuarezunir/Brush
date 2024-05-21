@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 //* App Custom
 import Button from '../Button/Button';
 import { InputProps } from '../Inputs/Input/Input';
-import ModalForm from '../ModalForm/ModalForm';
+import ModalForm from '../Modals/ModalForm/ModalForm';
 import { addRegistry } from './requests';
 
 interface Props {
