@@ -10,8 +10,7 @@ import { toast } from 'react-toastify';
 import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import InputManager from '../InputManager/InputManager';
-import Modal from '../Modal/Modal';
-import modalStyles from '../Modal/modal.module.css';
+import ConfirmationModal from '../Modal/ConfirmationModal';
 import ModalForm from '../ModalForm/ModalForm';
 import { addStudy, deleteStudy, updateStudy } from './requests';
 import styles from './studies.module.css';
@@ -206,26 +205,11 @@ const PainterStudiesData = ({ studies }: Props) => {
         />
       )}
       {showConfirmationModal.show && (
-        <Modal
+        <ConfirmationModal
           title="confirmation.delete_study_title"
           description="confirmation.delete_study_desc"
-          body={
-            <div className={modalStyles.modalForm_btns}>
-              <Button
-                variant="secondary"
-                text="buttons.close"
-                onClick={() =>
-                  setShowConfirmationModal({ show: false, study: null })
-                }
-                disabled={!formState.isValid || doingRequest}
-              />
-              <Button
-                text="buttons.delete_study"
-                disabled={doingRequest}
-                onClick={() => onDeleteStudy(showConfirmationModal.study!)}
-              />
-            </div>
-          }
+          doingRequest={doingRequest}
+          onSubmit={() => onDeleteStudy(showConfirmationModal.study!)}
           onHide={() => setShowConfirmationModal({ show: false, study: null })}
         />
       )}

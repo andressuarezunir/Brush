@@ -18,7 +18,7 @@ import {
 import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import InputManager from '../InputManager/InputManager';
-import Modal from '../Modal/Modal';
+import ConfirmationModal from '../Modal/ConfirmationModal';
 import styles from './adminForm.module.css';
 import {
   deleteExperience,
@@ -314,19 +314,11 @@ const AdminForm = ({ module, defaultData }: Props) => {
   return (
     <>
       {showDeleteModal && (
-        <Modal
+        <ConfirmationModal
           title={`confirmation.delete_${module}_title`}
           description={`confirmation.delete_${module}_desc`}
-          body={
-            <div className={styles.admin_form_buttons}>
-              <Button
-                variant="secondary"
-                text="buttons.close"
-                onClick={() => setShowDeleteModal(false)}
-              />
-              <Button text={`buttons.delete_${module}`} onClick={onDelete} />
-            </div>
-          }
+          doingRequest={isPending}
+          onSubmit={onDelete}
           onHide={() => setShowDeleteModal(false)}
         />
       )}
