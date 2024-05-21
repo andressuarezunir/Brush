@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import Button from '../Button/Button';
 import { InputProps } from '../Input/Input';
 import ModalForm from '../ModalForm/ModalForm';
-import { addExperience, addPaint } from './requests';
+import { addRegistry } from './requests';
 
 interface Props {
   name: 'paint' | 'experience';
@@ -193,23 +193,20 @@ const AddRegistry = ({ name }: Props) => {
         date_finish: new Date(data.date_finish).toISOString()
       };
     }
-    let request;
     const formData = new FormData();
     Object.entries(data).map((field) => {
       formData.append(field[0], field[1]);
     });
-    if (name === 'paint') {
-      request = await addPaint(formData);
-    } else request = await addExperience(formData);
+    const request = await addRegistry(name, formData);
     if (request?.error_message) {
       toast(t(`toasts.${request?.error_message}`), { type: 'error' });
     } else {
       toast(t(`toasts.${name}_added`), { type: 'success' });
       setShowModal(false);
+      startTransition(() => {
+        router.refresh();
+      });
     }
-    startTransition(() => {
-      router.refresh();
-    });
   };
 
   return (
