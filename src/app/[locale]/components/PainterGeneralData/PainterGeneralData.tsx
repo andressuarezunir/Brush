@@ -6,8 +6,8 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 //* App Custom
 import Button from '../Button/Button';
-import { InputProps } from '../Input/Input';
-import InputManager from '../InputManager/InputManager';
+import { InputProps } from '../Inputs/Input/Input';
+import InputManager from '../Inputs/InputManager/InputManager';
 import { updatePainterGeneralData } from './requests';
 
 export interface PainterGeneralDataProps {

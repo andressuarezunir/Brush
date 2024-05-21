@@ -8,8 +8,8 @@ import { FaPlus } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 //* App Custom
 import Button from '../Button/Button';
-import { InputProps } from '../Input/Input';
-import InputManager from '../InputManager/InputManager';
+import { InputProps } from '../Inputs/Input/Input';
+import InputManager from '../Inputs/InputManager/InputManager';
 import ConfirmationModal from '../Modal/ConfirmationModal';
 import ModalForm from '../ModalForm/ModalForm';
 import { addStudy, deleteStudy, updateStudy } from './requests';

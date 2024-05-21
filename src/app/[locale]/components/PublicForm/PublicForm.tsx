@@ -8,8 +8,8 @@ import { useState, useTransition } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 //* App Custom
-import { InputProps } from '../Input/Input';
-import InputManager from '../InputManager/InputManager';
+import { InputProps } from '../Inputs/Input/Input';
+import InputManager from '../Inputs/InputManager/InputManager';
 import styles from './PublicForm.module.css';
 import {
   changePasswordPwRequest,

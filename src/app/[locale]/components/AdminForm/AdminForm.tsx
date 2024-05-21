@@ -16,8 +16,8 @@ import {
   PaintCategory
 } from '@prisma/client';
 import Button from '../Button/Button';
-import { InputProps } from '../Input/Input';
-import InputManager from '../InputManager/InputManager';
+import { InputProps } from '../Inputs/Input/Input';
+import InputManager from '../Inputs/InputManager/InputManager';
 import ConfirmationModal from '../Modal/ConfirmationModal';
 import styles from './adminForm.module.css';
 import { deleteRegistry, updateRegistry } from './requests';

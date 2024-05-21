@@ -12,7 +12,8 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { cleanObject } from '@/app/helpers/cleanObject';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
-import Input, { InputProps } from '../Input/Input';
+import { InputProps } from '../Inputs/Input/Input';
+import InputManager from '../Inputs/InputManager/InputManager';
 import { filterExperiences, filterPaints } from './requests';
 import styles from './table.module.css';
 
@@ -168,7 +169,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
         <div className={styles.filters_container}>
           {filtersToDisplay.map((filter) => (
             <div key={filter.name} className={styles.filter_input}>
-              <Input {...filter} control={control} />
+              <InputManager {...filter} input={filter} control={control} />
             </div>
           ))}
           <div className={styles.filter_btn}>
