@@ -77,6 +77,7 @@
     "date_start": "Start date",
     "date_updated": "Date updated",
     "description": "Description",
+    "dimensions": "Dimensions",
     "education": "Education",
     "email": "Email",
     "height": "Height",
@@ -87,15 +88,18 @@
     "new_password": "New password",
     "oil_painting": "Oil painting",
     "on_sale": "On sale?",
+    "paint_details": "Paint details",
     "password": "Password",
     "status": "Status",
     "subtitle": "Subtitle",
     "technique": "Technique",
+    "time_required": "Time required",
     "title": "Title",
     "verify_password": "Verify password",
     "welcome_message": "Welcome message",
     "width": "Width",
-    "work_experience": "Work experience"
+    "work_experience": "Work experience",
+    "year": "Year"
   },
   "placeholders": {
     "category": "Select category",
@@ -166,5 +170,19 @@
     "question": "Would you like to contact me?",
     "description": "If you are looking for a custom job or want to be a partner you can contact me",
     "button": "Fill out the form"
-  }
+  },
+  "yes": "Yes",
+  "no": "No",
+  "january": "January",
+  "february": "February",
+  "march": "March",
+  "april": "April",
+  "may": "May",
+  "june": "June",
+  "july": "July",
+  "august": "August",
+  "september": "September",
+  "october": "October",
+  "november": "November",
+  "december": "December"
 }

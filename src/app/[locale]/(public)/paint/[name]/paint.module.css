@@ -1,0 +1,51 @@
+.paint_bg {
+  background-color: hsl(0, 0%, 100%);
+}
+.paint_image {
+  width: 100% !important;
+  height: 70vh !important;
+  object-fit: cover;
+}
+.paint_data {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .paint_data {
+    flex-direction: row;
+  }
+}
+.paint_data h2 {
+  color: hsl(230, 47%, 27%);
+}
+.paint_section {
+  width: 100%;
+}
+.paint_category {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid hsl(230, 47%, 27%);
+  border-radius: 0.5rem;
+  color: hsl(230, 47%, 27%);
+  font-weight: 500;
+  width: fit-content !important;
+}
+.paint_details {
+  background-color: hsl(0, 0%, 96%);
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.paint_label {
+  color: hsl(230, 47%, 27%);
+  font-weight: 700;
+}
+.paint_value {
+  color: hsl(227, 10%, 36%);
+  font-weight: 400;
+  display: block;
+}
