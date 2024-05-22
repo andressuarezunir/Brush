@@ -1,0 +1,13 @@
+.filters_form_input_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.filters_form_input {
+  width: 40%;
+}
+.filters_form_button {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}

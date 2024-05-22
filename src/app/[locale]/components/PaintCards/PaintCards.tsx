@@ -1,8 +1,9 @@
+'use client';
 //* External
 import moment from 'moment-timezone';
 import Image from 'next/image';
 //* App Custom
-import { cookies } from 'next/headers';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { PaintProps } from '../AdminForm/AdminForm';
 import styles from './paintCards.module.css';
@@ -12,7 +13,7 @@ interface PaintCardProps {
 }
 
 const PaintCards = ({ data = [] }: PaintCardProps) => {
-  const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
+  const localeActive = useLocale();
 
   return (
     <div className={styles.paints_container}>
@@ -20,7 +21,7 @@ const PaintCards = ({ data = [] }: PaintCardProps) => {
         const titleUnderlined = title.replace(' ', '_').toLowerCase();
         return (
           <Link
-            href={`/${locale}/paint/${id}_${titleUnderlined}`}
+            href={`/${localeActive}/paint/${id}_${titleUnderlined}`}
             key={`paint_${id}`}
             className={styles.paint_link}
           >

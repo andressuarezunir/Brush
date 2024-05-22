@@ -169,7 +169,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
         <div className={styles.filters_container}>
           {filtersToDisplay.map((filter) => (
             <div key={filter.name} className={styles.filter_input}>
-              <InputManager {...filter} input={filter} control={control} />
+              <InputManager input={filter} control={control} />
             </div>
           ))}
           <div className={styles.filter_btn}>
