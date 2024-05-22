@@ -1,0 +1,14 @@
+.experience_bg {
+  background-color: hsl(0, 0%, 100%);
+}
+.experience_image {
+  width: 100% !important;
+  height: 70vh !important;
+  object-fit: cover;
+}
+.experience_data {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+}
