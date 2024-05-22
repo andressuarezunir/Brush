@@ -10,6 +10,7 @@ import prisma from '@/lib/prisma';
 import globalStyles from '../../../globals.module.css';
 import Button from '../../components/Button/Button';
 import ContactBanner from '../../components/ContactBanner/ContactBanner';
+import ExperienceCards from '../../components/ExperienceCards/ExperienceCards';
 import PaintCards from '../../components/PaintCards/PaintCards';
 import styles from './page.module.css';
 
@@ -81,6 +82,7 @@ export default async function HomePage() {
         <div className={globalStyles.public_container_width}>
           <div className={styles.home_section_interaction}>
             <h2>{t('home_sections.experiences')}</h2>
+            <ExperienceCards data={firstExperiences} />
             <Link href={`/${locale}/experiences`}>
               <Button
                 text="buttons.see_all_experiences"
