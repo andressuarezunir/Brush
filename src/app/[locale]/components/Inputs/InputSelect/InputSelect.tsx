@@ -40,17 +40,13 @@ const InputSelect = ({
             id={name}
             onChange={onChange}
             className={selectStyles.input_select_container}
-            defaultValue={defaultValue || ''}
+            defaultValue={(defaultValue as string | number) || ''}
           >
             <option value="" disabled>
               {t(placeholder)}
             </option>
             {options.map((option) => (
-              <option
-                key={option.text}
-                value={option.value}
-                defaultValue={defaultValue}
-              >
+              <option key={option.text} value={option.value}>
                 {t(option.text)}
               </option>
             ))}
