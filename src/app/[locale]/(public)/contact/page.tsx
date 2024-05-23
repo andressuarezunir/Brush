@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { cookies } from 'next/headers';
 //* App Custom
 import globalStyles from '../../../globals.module.css';
+import ContactForm from '../../components/ContactForm/ContactForm';
 import SectionBanner from '../../components/SectionBanner/SectionBanner';
 
 export async function generateMetadata() {
@@ -22,7 +23,7 @@ export default async function ContactPage() {
     <div className={globalStyles.public_container}>
       <SectionBanner title={t('sections.contact')} />
       <div className={globalStyles.public_container_width}>
-        <h1>Contact Page</h1>
+        <ContactForm />
       </div>
     </div>
   );

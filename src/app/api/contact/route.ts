@@ -8,6 +8,9 @@ export async function POST(request: Request) {
     const contact = await prisma.contact.create({ data });
     return NextResponse.json(contact);
   } catch (error) {
-    return NextResponse.json({ message: 'Error in request' }, { status: 500 });
+    return NextResponse.json(
+      { error_message: 'Error in request' },
+      { status: 500 }
+    );
   }
 }
