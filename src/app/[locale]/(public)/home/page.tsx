@@ -46,9 +46,9 @@ export default async function HomePage() {
         <div className={globalStyles.public_container_width}>
           <div className={styles.hero_info}>
             <div className={styles.hero_texts}>
-              <h1 className={inter.className}>{`Soy ${painter!.name} ${
+              <h1 className={inter.className}>{`${t('i_am')} ${painter!.name} ${
                 painter!.last_name
-              }, un pintor`}</h1>
+              }, ${t('a_painter')}`}</h1>
               <p>{`"${painter!.welcome_message}"`}</p>
               <Link href={`/${locale}/contact`}>
                 <Button text="buttons.contact_me" icon={<FaLocationArrow />} />
