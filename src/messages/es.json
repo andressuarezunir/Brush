@@ -125,6 +125,7 @@
     "width": "Ingresar ancho"
   },
   "form_errors": {
+    "email_pattern": "El valor ingresado no es un correo válido",
     "input_required": "Este campo es requerido"
   },
   "titles": {

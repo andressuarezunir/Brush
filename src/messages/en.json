@@ -125,6 +125,7 @@
     "width": "Enter width"
   },
   "form_errors": {
+    "email_pattern": "This field value is not a valid email",
     "input_required": "This field es required"
   },
   "titles": {

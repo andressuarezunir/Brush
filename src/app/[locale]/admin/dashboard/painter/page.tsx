@@ -5,8 +5,11 @@ import Image from 'next/image';
 //* App Custom
 import PainterTabs from '@/app/[locale]/components/PainterTabs/PainterTabs';
 import prisma from '@/lib/prisma';
+import { Fraunces } from 'next/font/google';
 import layoutStyles from '../layout.module.css';
 import styles from './painter.module.css';
+
+const inter = Fraunces({ subsets: ['latin'] });
 
 export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
@@ -36,7 +39,7 @@ export default async function PainterPage() {
   return (
     <div>
       <div className={layoutStyles.dashboard_header}>
-        <h1>{t('sections.painter')}</h1>
+        <h1 className={inter.className}>{t('sections.painter')}</h1>
       </div>
       <div className={styles.painter_divider}>
         <div className={styles.painter_card}>

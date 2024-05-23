@@ -5,7 +5,10 @@ import { cookies } from 'next/headers';
 import AddRegistry from '@/app/[locale]/components/AddRegistry/AddRegistry';
 import Table from '@/app/[locale]/components/Table/Table';
 import prisma from '@/lib/prisma';
+import { Fraunces } from 'next/font/google';
 import styles from '../layout.module.css';
+
+const inter = Fraunces({ subsets: ['latin'] });
 
 export async function generateMetadata() {
   const locale = cookies().get('NEXT_LOCALE')?.value || 'es';
@@ -27,7 +30,7 @@ export default async function PaintsPage() {
   return (
     <div>
       <div className={styles.dashboard_header}>
-        <h1>{t('sections.paints')}</h1>
+        <h1 className={inter.className}>{t('sections.paints')}</h1>
         <AddRegistry name="paint" />
       </div>
       <Table key={paints.length} data={paints} module="paint" />

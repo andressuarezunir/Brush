@@ -1,11 +1,14 @@
 //* External
 import { getTranslations } from 'next-intl/server';
+import { Fraunces } from 'next/font/google';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
 //* App Custom
 import AdminForm from '@/app/[locale]/components/AdminForm/AdminForm';
 import prisma from '@/lib/prisma';
-import { cookies } from 'next/headers';
 import layoutStyles from '../../layout.module.css';
+
+const inter = Fraunces({ subsets: ['latin'] });
 
 interface Props {
   params: { name: string };
@@ -40,7 +43,7 @@ export default async function ExperiencePage({ params }: Props) {
     <div>
       <div className={layoutStyles.dashboard_header}>
         <div>
-          <h1>{t('sections.experience')}</h1>
+          <h1 className={inter.className}>{t('sections.experience')}</h1>
           <div className={layoutStyles.dashboard_breadcrumb}>
             <Link href={`/${locale}/admin/dashboard/experiences/`}>
               {t('sections.experiences')}

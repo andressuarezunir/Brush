@@ -29,7 +29,13 @@ const ContactForm = () => {
       name: 'email',
       label: 'labels.email',
       placeholder: 'placeholders.email',
-      rules: { required: { value: true } }
+      rules: {
+        required: { value: true },
+        pattern: {
+          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+          message: 'form_errors.email_pattern'
+        }
+      }
     },
     {
       type: 'text',

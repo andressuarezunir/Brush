@@ -36,6 +36,9 @@
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
+.dashboard_header h1 {
+  font-weight: 600;
+}
 .dashboard_breadcrumb {
   display: flex;
   gap: 0.5rem;
