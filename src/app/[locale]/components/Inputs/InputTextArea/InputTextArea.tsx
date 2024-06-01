@@ -32,10 +32,10 @@ const InputTextArea = ({
             )}
           </label>
           <textarea
-            rows={5}
+            rows={10}
             id={name}
             placeholder={t(placeholder)}
-            defaultValue={defaultValue}
+            defaultValue={defaultValue as string}
             onChange={onChange}
             className={textAreaStyles.input_text_area}
           />
