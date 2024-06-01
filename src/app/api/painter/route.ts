@@ -33,12 +33,11 @@ export async function PATCH(request: Request) {
     image_url = await uploadImage(image);
   }
 
-  let dataUpdated = {
-    name,
-    last_name,
-    welcome_message,
-    description
-  };
+  let dataUpdated = {};
+  if (name) dataUpdated = { ...dataUpdated, name };
+  if (last_name) dataUpdated = { ...dataUpdated, last_name };
+  if (welcome_message) dataUpdated = { ...dataUpdated, welcome_message };
+  if (description) dataUpdated = { ...dataUpdated, description };
   if (image_url) dataUpdated = { ...dataUpdated, image: image_url };
 
   try {

@@ -1,3 +1,6 @@
 .page_container {
   padding: 3rem 0;
 }
+.no_data_container {
+  min-height: 32vh;
+}

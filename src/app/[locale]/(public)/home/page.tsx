@@ -31,11 +31,13 @@ export default async function HomePage() {
   const painter = await prisma.painter.findFirst({ where: { id: 1 } });
   const paints = await prisma.paint.findMany({
     include: { categories: { select: { category: true } } },
-    where: { status: true, deleted: false }
+    where: { status: true, deleted: false },
+    orderBy: { date_finish: 'desc' }
   });
   const experiences = await prisma.experience.findMany({
     include: { categories: { select: { category: true } } },
-    where: { status: true, deleted: false }
+    where: { status: true, deleted: false },
+    orderBy: { date_updated: 'desc' }
   });
   const firstPaints = paints!.slice(0, 6);
   const firstExperiences = experiences!.slice(0, 2);
@@ -68,13 +70,19 @@ export default async function HomePage() {
         <div className={globalStyles.public_container_width}>
           <div className={styles.home_section_interaction}>
             <h2>{t('home_sections.paints')}</h2>
-            <PaintCards data={firstPaints} />
-            <Link href={`/${locale}/paints`}>
-              <Button
-                text="buttons.see_all_paints"
-                icon={<FaLocationArrow />}
-              />
-            </Link>
+            {firstPaints.length > 0 ? (
+              <>
+                <PaintCards data={firstPaints} />
+                <Link href={`/${locale}/paints`}>
+                  <Button
+                    text="buttons.see_all_paints"
+                    icon={<FaLocationArrow />}
+                  />
+                </Link>
+              </>
+            ) : (
+              <p>{t('there_is_no_registries_in_this_section')}</p>
+            )}
           </div>
         </div>
       </div>
@@ -82,13 +90,19 @@ export default async function HomePage() {
         <div className={globalStyles.public_container_width}>
           <div className={styles.home_section_interaction}>
             <h2>{t('home_sections.experiences')}</h2>
-            <ExperienceCards data={firstExperiences} />
-            <Link href={`/${locale}/experiences`}>
-              <Button
-                text="buttons.see_all_experiences"
-                icon={<FaLocationArrow />}
-              />
-            </Link>
+            {firstExperiences.length > 0 ? (
+              <>
+                <ExperienceCards data={firstExperiences} />
+                <Link href={`/${locale}/experiences`}>
+                  <Button
+                    text="buttons.see_all_experiences"
+                    icon={<FaLocationArrow />}
+                  />
+                </Link>
+              </>
+            ) : (
+              <p>{t('there_is_no_registries_in_this_section')}</p>
+            )}
           </div>
         </div>
       </div>

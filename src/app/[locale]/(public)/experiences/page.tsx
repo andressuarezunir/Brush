@@ -39,7 +39,8 @@ export default async function ExperiencesPage({ params, searchParams }: Props) {
       status: true,
       deleted: false,
       ...titleParam
-    }
+    },
+    orderBy: { date_updated: 'desc' }
   });
 
   return (
@@ -48,7 +49,13 @@ export default async function ExperiencesPage({ params, searchParams }: Props) {
       <div className={globalStyles.public_container_width}>
         <div className={styles.page_container}>
           <FilterRegistries module="experience" />
-          <ExperienceCards data={experiences} />
+          {experiences.length > 0 ? (
+            <ExperienceCards data={experiences} />
+          ) : (
+            <div className={styles.no_data_container}>
+              <p>{t('there_is_no_registries_in_this_section')}</p>
+            </div>
+          )}
         </div>
       </div>
       <ContactBanner />

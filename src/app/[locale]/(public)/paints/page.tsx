@@ -40,7 +40,8 @@ export default async function PaintsPage({ params, searchParams }: Props) {
       status: true,
       deleted: false,
       ...titleParam
-    }
+    },
+    orderBy: { date_finish: 'desc' }
   });
 
   return (
@@ -49,7 +50,13 @@ export default async function PaintsPage({ params, searchParams }: Props) {
       <div className={globalStyles.public_container_width}>
         <div className={styles.page_container}>
           <FilterRegistries module="paint" />
-          <PaintCards data={paints} />
+          {paints.length > 0 ? (
+            <PaintCards data={paints} />
+          ) : (
+            <div className={styles.no_data_container}>
+              <p>{t('there_is_no_registries_in_this_section')}</p>
+            </div>
+          )}
         </div>
       </div>
       <ContactBanner />

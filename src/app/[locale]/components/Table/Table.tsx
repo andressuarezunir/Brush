@@ -10,6 +10,7 @@ import { FaPencilAlt } from 'react-icons/fa';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 //* App Custom
 import { cleanObject } from '@/app/helpers/cleanObject';
+import { ExperienceProps, PaintProps } from '../AdminForm/AdminForm';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
 import { InputProps } from '../Inputs/Input/Input';
@@ -35,7 +36,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
   const { control, handleSubmit } = useForm({ mode: 'all' });
   const [dataToShow, setDataToShow] = useState(data);
 
-  const paintColumns: Column<T>[] = [
+  const paintColumns: Column<PaintProps>[] = [
     {
       name: t('labels.actions'),
       cell: ({ id, title }) => (
@@ -80,7 +81,7 @@ const Table = <T extends object>({ data = [], module }: TableProps<T>) => {
     }
   ];
 
-  const experienceColumns: Column<T>[] = [
+  const experienceColumns: Column<ExperienceProps>[] = [
     {
       name: t('labels.actions'),
       cell: ({ id, title }) => (
