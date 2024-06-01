@@ -119,7 +119,7 @@ const PublicForm = ({ inputs = [], page, link }: PublicFormProps) => {
         type="submit"
         disabled={!formState.isValid || doingRequest || isPending}
         className={styles.submitBtn}
-        title={!formState.isValid ? 'titles.missing_inputs_required' : ''}
+        title={!formState.isValid ? t('titles.missing_inputs_required') : ''}
       >
         {t('buttons.submit')}
       </button>
