@@ -24,7 +24,8 @@ export default async function PaintsPage() {
   const t = await getTranslations({ locale });
   const paints = await prisma.paint.findMany({
     include: { categories: { select: { category: true } } },
-    where: { deleted: false }
+    where: { deleted: false },
+    orderBy: { date_finish: 'desc' }
   });
 
   return (

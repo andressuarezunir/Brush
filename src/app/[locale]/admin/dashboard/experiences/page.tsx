@@ -24,7 +24,8 @@ export default async function ExperiencesPage() {
   const t = await getTranslations({ locale });
   const experiences = await prisma.experience.findMany({
     include: { categories: { select: { category: true } } },
-    where: { deleted: false }
+    where: { deleted: false },
+    orderBy: { date_updated: 'desc' }
   });
 
   return (

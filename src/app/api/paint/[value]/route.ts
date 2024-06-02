@@ -48,7 +48,7 @@ export async function PATCH(request: Request, { params }: Segment) {
   let dataUpdated = {};
   if (title) dataUpdated = { ...dataUpdated, title };
   if (width) dataUpdated = { ...dataUpdated, width: Number(width) };
-  if (height) dataUpdated = { ...dataUpdated, width: Number(height) };
+  if (height) dataUpdated = { ...dataUpdated, height: Number(height) };
   if (date_start) {
     dataUpdated = { ...dataUpdated, date_start: new Date(date_start) };
   }
