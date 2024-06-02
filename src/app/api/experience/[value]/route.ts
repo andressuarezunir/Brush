@@ -24,6 +24,7 @@ export async function PATCH(request: Request, { params }: Segment) {
   const description = data.get('description') as string;
   const image = data.get('image') as File;
   const status = data.get('status');
+  const categories = data.get('categories');
 
   let image_url;
   if (image) {
@@ -43,6 +44,17 @@ export async function PATCH(request: Request, { params }: Segment) {
       where: { id: Number(params.value) },
       data: dataUpdated
     });
+    if (categories) {
+      await prisma.categoriesOnExperience.deleteMany({
+        where: { experience_id: Number(params.value) }
+      });
+      await prisma.categoriesOnExperience.create({
+        data: {
+          experience_id: experience.id,
+          category_id: Number(categories)
+        }
+      });
+    }
     return NextResponse.json(experience);
   } catch (error) {
     return NextResponse.json({ message: 'Error in request' }, { status: 500 });

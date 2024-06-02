@@ -38,6 +38,7 @@ export async function PATCH(request: Request, { params }: Segment) {
   const date_finish = data.get('date_finish') as string;
   const status = data.get('status');
   const on_sale = data.get('on_sale');
+  const categories = data.get('categories');
 
   let image_url;
   if (image) {
@@ -68,6 +69,17 @@ export async function PATCH(request: Request, { params }: Segment) {
       where: { id: Number(params.value) },
       data: dataUpdated
     });
+    if (categories) {
+      await prisma.categoriesOnPaint.deleteMany({
+        where: { paint_id: Number(params.value) }
+      });
+      await prisma.categoriesOnPaint.create({
+        data: {
+          paint_id: paint.id,
+          category_id: Number(categories)
+        }
+      });
+    }
 
     return NextResponse.json(paint);
   } catch (error) {
